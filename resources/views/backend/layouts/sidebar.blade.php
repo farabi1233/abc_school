@@ -90,9 +90,22 @@ $route = Route::current()->getName();
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route ('setups.student.group.view') }}" class="nav-link {{($route=='setups.student.Group.view')?'active':''}}">
+                        <a href="{{ route ('setups.student.group.view') }}" class="nav-link {{($route=='setups.student.group.view')?'active':''}}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>View Group</p>
+                            <p>Student Group</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route ('setups.student.shift.view') }}" class="nav-link {{($route=='setups.student.shift.view')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Student Shift</p>
+                        </a>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a href="{{ route ('setups.student.fee.category.view') }}" class="nav-link {{($route=='setups.student.fee.category.view')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Student Fee Category</p>
                         </a>
                     </li>
                    

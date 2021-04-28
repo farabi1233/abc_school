@@ -40,10 +40,10 @@
 
 
                             <h4>
-                                View Student Year
+                                View Studetn Shift
 
 
-                                <a class=" btn btn-success float-right" href="{{ route('setups.student.year.add')}}"> <i class="fa fa-plus-circle"></i> Add Year</a>
+                                <a class=" btn btn-success float-right" href="{{ route('setups.student.shift.add')}}"> <i class="fa fa-plus-circle"></i> Add Shift</a>
 
 
                             </h4>
@@ -62,24 +62,24 @@
                                     <thead>
                                         <tr>
                                             <th>SL.</th>
-                                            <th>Year Name</th>
+                                            <th>Shift Name</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        @foreach($allData as $key => $year)
+                                        @foreach($allData as $key => $shift)
                                         <tr>
                                             <td>{{ $key+1 }}</td>
 
 
                                             
-                                            <td>{{ $year->name}}</td>
+                                            <td>{{ $shift->name}}</td>
                                            
 
                                             <td>
-                                                <a class="btn btn-sm btn-primary" href="{{ route('setups.student.year.edit',$year->id)}}"> <i class="fa fa-edit"></i>Edit</a>
-                                                <a class="btn btn-sm btn-danger" id="delete" href="{{ route('setups.student.year.delete',$year->id)}}"> <i class="fa fa-trash"></i>Delete</a>
+                                                <a class="btn btn-sm btn-primary" href="{{ route('setups.student.shift.edit',$shift->id)}}"> <i class="fa fa-edit"></i>Edit</a>
+                                                <a class="btn btn-sm btn-danger" id="delete" href="{{ route('setups.student.shift.delete',$shift->id)}}"> <i class="fa fa-trash"></i>Delete</a>
                                             </td>
 
 
