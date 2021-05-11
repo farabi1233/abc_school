@@ -73,13 +73,22 @@ Route::prefix('setups')->middleware(['test'])->group(function (){
     Route::get('/student/shift/delete/{id}', 'Backend\Setup\StudentShiftController@delete') -> name('setups.student.shift.delete');
     Route::post('/student/shift/update/{id}', 'Backend\Setup\StudentShiftController@update') -> name('setups.student.shift.update');
     Route::post('/student/shift/store', 'Backend\Setup\StudentShiftController@store') -> name('setups.student.shift.store');
-     //Student shift
+     //Student Fee Category
     Route::get('/student/fee/category/view', 'Backend\Setup\FeeCategoryController@view') -> name('setups.student.fee.category.view');
     Route::get('/student/fee/category/add', 'Backend\Setup\FeeCategoryController@add') -> name('setups.student.fee.category.add');
     Route::get('/student/fee/category/edit/{id}', 'Backend\Setup\FeeCategoryController@edit') -> name('setups.student.fee.category.edit');
     Route::get('/student/fee/category/delete/{id}', 'Backend\Setup\FeeCategoryController@delete') -> name('setups.student.fee.category.delete');
     Route::post('/student/fee/category/update/{id}', 'Backend\Setup\FeeCategoryController@update') -> name('setups.student.fee.category.update');
     Route::post('/student/fee/category/store', 'Backend\Setup\FeeCategoryController@store') -> name('setups.student.fee.category.store');
+     //Student Fee Category ammount
+    Route::get('/student/fee/ammount/view', 'Backend\Setup\FeeAmmountController@view') -> name('setups.student.fee.ammount.view');
+    
+    Route::get('/student/fee/ammount/add', 'Backend\Setup\FeeAmmountController@add') -> name('setups.student.fee.ammount.add');
+    Route::get('/student/fee/ammount/edit/{fee_category_id}', 'Backend\Setup\FeeAmmountController@edit') -> name('setups.student.fee.ammount.edit');
+    Route::get('/student/fee/ammount/details/{fee_category_id}', 'Backend\Setup\FeeAmmountController@details') -> name('setups.student.fee.ammount.details');
+    Route::get('/student/fee/ammount/delete/{id}', 'Backend\Setup\FeeAmmountController@delete') -> name('setups.student.fee.category.delete');
+    Route::post('/student/fee/ammount/update/{id}', 'Backend\Setup\FeeAmmountController@update') -> name('setups.student.fee.ammount.update');
+    Route::post('/student/fee/ammount/store', 'Backend\Setup\FeeAmmountController@store') -> name('setups.student.fee.ammount.store');
   
 });
 

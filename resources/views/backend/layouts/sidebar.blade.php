@@ -105,7 +105,14 @@ $route = Route::current()->getName();
                     <li class="nav-item">
                         <a href="{{ route ('setups.student.fee.category.view') }}" class="nav-link {{($route=='setups.student.fee.category.view')?'active':''}}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Student Fee Category</p>
+                            <p>Fee Category</p>
+                        </a>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a href="{{ route ('setups.student.fee.ammount.view') }}" class="nav-link {{($route=='setups.student.fee.ammount.view')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Fee Ammount</p>
                         </a>
                     </li>
                    
