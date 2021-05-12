@@ -41,7 +41,6 @@ Route::prefix('profiles')->middleware(['test'])->group(function (){
 
 Route::prefix('setups')->middleware(['test'])->group(function (){
     //student class
-
     Route::get('/student/class/view', 'Backend\Setup\StudentClassController@view') -> name('setups.student.class.view');
     Route::get('/student/class/add', 'Backend\Setup\StudentClassController@add') -> name('setups.student.class.add');
     Route::get('/student/class/edit/{id}', 'Backend\Setup\StudentClassController@edit') -> name('setups.student.class.edit');
@@ -50,7 +49,6 @@ Route::prefix('setups')->middleware(['test'])->group(function (){
     Route::post('/student/class/store', 'Backend\Setup\StudentClassController@store') -> name('setups.student.class.store');
 
     //year or session
-
     Route::get('/student/year/view', 'Backend\Setup\StudentYearController@view') -> name('setups.student.year.view');
     Route::get('/student/year/add', 'Backend\Setup\StudentYearController@add') -> name('setups.student.year.add');
     Route::get('/student/year/edit/{id}', 'Backend\Setup\StudentYearController@edit') -> name('setups.student.year.edit');
@@ -73,6 +71,7 @@ Route::prefix('setups')->middleware(['test'])->group(function (){
     Route::get('/student/shift/delete/{id}', 'Backend\Setup\StudentShiftController@delete') -> name('setups.student.shift.delete');
     Route::post('/student/shift/update/{id}', 'Backend\Setup\StudentShiftController@update') -> name('setups.student.shift.update');
     Route::post('/student/shift/store', 'Backend\Setup\StudentShiftController@store') -> name('setups.student.shift.store');
+
      //Student Fee Category
     Route::get('/student/fee/category/view', 'Backend\Setup\FeeCategoryController@view') -> name('setups.student.fee.category.view');
     Route::get('/student/fee/category/add', 'Backend\Setup\FeeCategoryController@add') -> name('setups.student.fee.category.add');
@@ -80,15 +79,23 @@ Route::prefix('setups')->middleware(['test'])->group(function (){
     Route::get('/student/fee/category/delete/{id}', 'Backend\Setup\FeeCategoryController@delete') -> name('setups.student.fee.category.delete');
     Route::post('/student/fee/category/update/{id}', 'Backend\Setup\FeeCategoryController@update') -> name('setups.student.fee.category.update');
     Route::post('/student/fee/category/store', 'Backend\Setup\FeeCategoryController@store') -> name('setups.student.fee.category.store');
+
      //Student Fee Category ammount
     Route::get('/student/fee/ammount/view', 'Backend\Setup\FeeAmmountController@view') -> name('setups.student.fee.ammount.view');
-    
     Route::get('/student/fee/ammount/add', 'Backend\Setup\FeeAmmountController@add') -> name('setups.student.fee.ammount.add');
     Route::get('/student/fee/ammount/edit/{fee_category_id}', 'Backend\Setup\FeeAmmountController@edit') -> name('setups.student.fee.ammount.edit');
     Route::get('/student/fee/ammount/details/{fee_category_id}', 'Backend\Setup\FeeAmmountController@details') -> name('setups.student.fee.ammount.details');
     Route::get('/student/fee/ammount/delete/{id}', 'Backend\Setup\FeeAmmountController@delete') -> name('setups.student.fee.category.delete');
     Route::post('/student/fee/ammount/update/{id}', 'Backend\Setup\FeeAmmountController@update') -> name('setups.student.fee.ammount.update');
     Route::post('/student/fee/ammount/store', 'Backend\Setup\FeeAmmountController@store') -> name('setups.student.fee.ammount.store');
+
+     //Exam Type
+    Route::get('/exam/type/view', 'Backend\Setup\ExamTypeController@view') -> name('setups.exam.type.view');
+    Route::get('/exam/type/add', 'Backend\Setup\ExamTypeController@add') -> name('setups.exam.type.add');
+    Route::get('/exam/type/edit/{id}', 'Backend\Setup\ExamTypeController@edit') -> name('setups.exam.type.edit');
+    Route::get('/exam/type/delete/{id}', 'Backend\Setup\ExamTypeController@delete') -> name('setups.exam.type.delete');
+    Route::post('/exam/type/update/{id}', 'Backend\Setup\ExamTypeController@update') -> name('setups.exam.type.update');
+    Route::post('/exam/type/store', 'Backend\Setup\ExamTypeController@store') -> name('setups.exam.type.store');
   
 });
 
