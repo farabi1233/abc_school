@@ -97,6 +97,16 @@ Route::prefix('setups')->middleware(['test'])->group(function (){
     Route::post('/exam/type/update/{id}', 'Backend\Setup\ExamTypeController@update') -> name('setups.exam.type.update');
     Route::post('/exam/type/store', 'Backend\Setup\ExamTypeController@store') -> name('setups.exam.type.store');
   
+
+
+     //subject
+    Route::get('/subject/view', 'Backend\Setup\SubjectController@view') -> name('backend.setups.subject.view');
+    Route::get('/subject/add', 'Backend\Setup\SubjectController@add') -> name('backend.setups.subject.add');
+    Route::get('/subject/edit/{id}', 'Backend\Setup\SubjectController@edit') -> name('backend.setups.subject.edit');
+    Route::get('/subject/delete/{id}', 'Backend\Setup\SubjectController@delete') -> name('backend.setups.subject.delete');
+    Route::post('/subject/update/{id}', 'Backend\Setup\SubjectController@update') -> name('backend.setups.subject.update');
+    Route::post('/subject/store', 'Backend\Setup\SubjectController@store') -> name('backend.setups.subject.store');
+  
 });
 
 

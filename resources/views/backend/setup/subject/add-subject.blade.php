@@ -41,11 +41,11 @@
 
                             <h4>
                                 @if(isset($editData))
-                                Edit Exam Type
+                                Edit Student Subject
                                 @else
-                                Add Exam Type
+                                Add Student Subject
                                 @endif
-                                <a class=" btn btn-success float-right" href="{{ route('setups.exam.type.view')}}"> <i class="fa fa-plus-list"></i> Exam List</a>
+                                <a class=" btn btn-success float-right" href="{{ route('backend.setups.subject.view')}}"> <i class="fa fa-plus-circle"></i> Subject list</a>
 
                             </h4>
 
@@ -53,11 +53,11 @@
                         <div class="card-body">
                             <div class="tab-content p-0">
                                 <!-- Morris chart - Sales -->
-                                <form method="POST" action="{{(@$editData)?route('setups.exam.type.update',$editData->id):route('setups.exam.type.store')}} " id="myForm" enctype="multipart/form-data">
+                                <form method="POST" action="{{(@$editData)?route('backend.setups.subject.update',$editData->id):route('backend.setups.subject.store')}} " id="myForm" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
-                                            <label for="image">Exma Type</label>
+                                            <label for="image">Student Subject</label>
                                             <input type="text" value="{{@$editData->name}}" name="name" class="form-control" id="name" required>
                                             <font style="color: red;"> {{ ($errors->has('name'))?$errors->first(('name')):''}}</font>
                                         </div>

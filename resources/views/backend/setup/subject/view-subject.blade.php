@@ -40,42 +40,58 @@
 
 
                             <h4>
-                                @if(isset($editData))
-                                Edit Exam Type
-                                @else
-                                Add Exam Type
-                                @endif
-                                <a class=" btn btn-success float-right" href="{{ route('setups.exam.type.view')}}"> <i class="fa fa-plus-list"></i> Exam List</a>
+                                View Student Subject
+
+
+                                <a class=" btn btn-success float-right" href="{{ route('backend.setups.subject.add')}}"> <i class="fa fa-plus-circle"></i> Add Subject</a>
+
 
                             </h4>
+
+
+
 
                         </div><!-- /.card-header -->
                         <div class="card-body">
                             <div class="tab-content p-0">
                                 <!-- Morris chart - Sales -->
-                                <form method="POST" action="{{(@$editData)?route('setups.exam.type.update',$editData->id):route('setups.exam.type.store')}} " id="myForm" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label for="image">Exma Type</label>
-                                            <input type="text" value="{{@$editData->name}}" name="name" class="form-control" id="name" required>
-                                            <font style="color: red;"> {{ ($errors->has('name'))?$errors->first(('name')):''}}</font>
-                                        </div>
-
-
-                                        <div class="form-group col-md-6 " style="padding-top: 60px;">
-
-                                            <button type="submit" value="Submit" class="btn btn-primary">
-                                            {{(@$editData)?'Update':'Submit'}} </button>
-                                        </div>
-
-
-                                    </div>
-
-                                </form>
 
 
 
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>SL.</th>
+                                            <th>Subject Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach($allData as $key => $subject)
+                                        <tr>
+                                            <td>{{ $key+1 }}</td>
+
+
+                                            
+                                            <td>{{ $subject->name}}</td>
+                                           
+
+                                            <td>
+                                                <a class="btn btn-sm btn-primary" href="{{ route('backend.setups.subject.edit',$subject->id)}}"> <i class="fa fa-edit"></i>Edit</a>
+                                                <a class="btn btn-sm btn-danger" id="delete" href="{{ route('backend.setups.subject.delete',$subject->id)}}"> <i class="fa fa-trash"></i>Delete</a>
+                                            </td>
+
+
+
+                                        </tr>
+
+                                        @endforeach
+
+
+                                    </tbody>
+
+                                </table>
 
 
 
@@ -106,9 +122,4 @@
     </section>
     <!-- /.content -->
 </div>
-
-
-
-
-
 @endsection
