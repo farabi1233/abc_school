@@ -106,7 +106,8 @@ Route::prefix('setups')->middleware(['test'])->group(function (){
     Route::get('/subject/delete/{id}', 'Backend\Setup\SubjectController@delete') -> name('backend.setups.subject.delete');
     Route::post('/subject/update/{id}', 'Backend\Setup\SubjectController@update') -> name('backend.setups.subject.update');
     Route::post('/subject/store', 'Backend\Setup\SubjectController@store') -> name('backend.setups.subject.store');
-     //assign ubject
+     
+    //assign subject
     Route::get('/assign/subject/view', 'Backend\Setup\AssignSubjectController@view') -> name('setups.assign.subject.view');
     Route::get('/assign/subject/add', 'Backend\Setup\AssignSubjectController@add') -> name('setups.assign.subject.add');
     Route::get('/assign/subject/edit/{class_id}', 'Backend\Setup\AssignSubjectController@edit') -> name('setups.assign.subject.edit');
@@ -115,6 +116,14 @@ Route::prefix('setups')->middleware(['test'])->group(function (){
     Route::post('/assign/subject/store', 'Backend\Setup\AssignSubjectController@store') -> name('setups.assign.subject.store');
     Route::get('/assign/subject/details/{class_id}', 'Backend\Setup\AssignSubjectController@details') -> name('setups.assing.subject.details');
   
+     //designation
+     Route::get('/designation/view', 'Backend\Setup\DesignationController@view') -> name('setups.designation.view');
+     Route::get('/designation/add', 'Backend\Setup\DesignationController@add') -> name('setups.designation.add');
+     Route::get('/designation/edit/{id}', 'Backend\Setup\DesignationController@edit') -> name('setups.designation.edit');
+     Route::get('/designation/delete/{id}', 'Backend\Setup\DesignationController@delete') -> name('setups.designation.delete');
+     Route::post('/designation/update/{id}', 'Backend\Setup\DesignationController@update') -> name('setups.designation.update');
+     Route::post('/designation/store', 'Backend\Setup\DesignationController@store') -> name('setups.designation.store');
+      
 });
 
 

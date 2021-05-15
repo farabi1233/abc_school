@@ -137,6 +137,12 @@ $route = Route::current()->getName();
                             <p> Assign Subject</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route ('setups.designation.view') }}" class="nav-link {{($route=='setups.designation.view')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p> Designation</p>
+                        </a>
+                    </li>
                    
                 </ul>
             </li>

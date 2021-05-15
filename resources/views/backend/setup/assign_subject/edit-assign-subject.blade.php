@@ -45,7 +45,7 @@
                                 @else
                                 Add Assign Subject
                                 @endif
-                                <a class=" btn btn-success float-right" href="{{ route('setups.assign.subject.view')}}"> <i class="fa fa-plus-circle"></i> Fee ammount list</a>
+                                <a class=" btn btn-success float-right" href="{{ route('setups.assign.subject.view')}}"> <i class="fa fa-plus-circle"></i> Assign Subject list</a>
 
                             </h4>
 
