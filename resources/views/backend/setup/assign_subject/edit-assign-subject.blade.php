@@ -41,11 +41,11 @@
 
                             <h4>
                                 @if(isset($editData))
-                                Edit Fee Ammount
+                                Edit Assign Subject
                                 @else
-                                Add Fee Ammount
+                                Add Assign Subject
                                 @endif
-                                <a class=" btn btn-success float-right" href="{{ route('setups.student.fee.ammount.view')}}"> <i class="fa fa-plus-circle"></i> Fee ammount list</a>
+                                <a class=" btn btn-success float-right" href="{{ route('setups.assign.subject.view')}}"> <i class="fa fa-plus-circle"></i> Fee ammount list</a>
 
                             </h4>
 
@@ -54,7 +54,7 @@
                             <div class="tab-content p-0">
 
 
-                                <form method="POST" action="{{route('setups.student.fee.ammount.update',$editData[0]->fee_category_id)}} " id="myForm" enctype="multipart/form-data">
+                                <form method="POST" action="{{route('setups.assign.subject.update',$editData[0]->class_id)}} " id="myForm" enctype="multipart/form-data">
                                     @csrf
                                     <div class="add_item">
 
@@ -62,11 +62,11 @@
 
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
-                                                <label for="">Fee Category</label>
-                                                <select class="form-control" name="fee_category_id">
-                                                    <option value="">Select fee Category</option>
-                                                    @foreach($fee_categories as $category)
-                                                    <option value="{{$category->id}}" {{($editData['0']->fee_category_id == $category->id)?"selected":""}}>{{$category->name}}</option>
+                                                <label for="">Class</label>
+                                                <select class="form-control" name="class_id">
+                                                    <option value="">Select Class</option>
+                                                    @foreach($classes as $class)
+                                                    <option value="{{$class->id}}" {{($editData['0']->class_id == $class->id)?"selected":""}}>{{$class->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -77,20 +77,30 @@
                                         <div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
-                                                <label for="">Class</label>
-                                                <select class="form-control" name="class_id[]">
+                                                <label for="">Subject</label>
+                                                <select class="form-control" name="subject_id[]">
                                                     
-                                                    @foreach($classes as $class)
-                                                    <option value="{{$class->id}}" {{($edit->class_id == $class->id)?"selected":""}}>{{$class->name}}</option>
+                                                    @foreach($subjects as $subject)
+                                                    <option value="{{$subject->id}}" {{($edit->subject_id == $subject->id)?"selected":""}}>{{$subject->name}}</option>
                                                     @endforeach
 
                                                 </select>
                                             </div>
 
 
-                                            <div class="form-group col-md-4">
-                                                <label for="image">Fee Ammount</label>
-                                                <input type="text" value="{{$edit->ammount}}" name="ammount[]" class="form-control" required>
+                                            <div class="form-group col-md-2">
+                                                <label for="image">Full Marks</label>
+                                                <input type="text" value="{{$edit->full_mark}}" name="full_mark[]" class="form-control" required>
+
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label for="image">Pass Marks</label>
+                                                <input type="text" value="{{$edit->pass_mark}}" name="pass_mark[]" class="form-control" required>
+
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label for="image">Subjective Marks</label>
+                                                <input type="text" value="{{$edit->full_mark}}" name="subjective_mark[]" class="form-control" required>
 
                                             </div>
 
@@ -148,22 +158,84 @@
 <div style="visibility: hidden;">
     <div class="whole_extra_item_add" id="whole_extra_item_add">
         <div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
-            <div class="form-row">
+            
+<!-- //data -->
+<div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="">Class</label>
-                    <select class="form-control" name="class_id[]">
+                    <label for="">Subject</label>
+                    <select class="form-control" name="subject_id[]">
                         <option value="">Select Class</option>
-                        @foreach($classes as $class)
-                        <option value="{{$class->id}}">{{$class->name}}</option>
+                        @foreach($subjects as $subject)
+                        <option value="{{$subject->id}}">{{$subject->name}}</option>
                         @endforeach
 
                     </select>
                 </div>
 
 
+                <div class="form-group col-md-2">
+                    <label for="image">Full Marks</label>
+                    <input type="text" name="full_mark[]" class="form-control" required>
+
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="image">Pass Marks</label>
+                    <input type="text" name="pass_mark[]" class="form-control" required>
+
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="image">Subjective Marks</label>
+                    <input type="text" name="subjective_mark[]" class="form-control" required>
+
+                </div>
+
+
+                <div class="form-group col-md-2" style="padding-top: 30px;">
+                    <span class="btn btn-success addeventmore"> <i class="fa fa-plus-circle"></i></span>
+                    <span class="btn btn-danger removeeventmore"> <i class="fa fa-minus-circle"></i></span>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<div style="visibility: hidden;">
+    <div class="whole_extra_item_add" id="whole_extra_item_add">
+        <div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
+            
+            <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="image">Fee Ammount</label>
-                    <input type="text" name="ammount[]" class="form-control" required>
+                    <label for="">Subject</label>
+                    <select class="form-control" name="class_id[]">
+                        <option value="">Subject</option>
+                        @foreach($subjects as $subject)
+                        <option value="{{$subject->id}}" required>{{$subject->name}}</option>
+                        @endforeach
+
+                    </select>
+                </div>
+
+
+                <div class="form-group col-md-2">
+                    <label for="image">Full Mark</label>
+                    <input type="text" name="full_mark[]" class="form-control" required>
+
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="image">Pass Mark</label>
+                    <input type="text" name="pass_mark[]" class="form-control" required>
+
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="image">Subjective Mark</label>
+                    <input type="text" name="subjective_mark[]" class="form-control" required>
 
                 </div>
 
@@ -191,9 +263,11 @@
             counter++;
         });
         $(document).on("click", ".removeeventmore", function(event) {
+
             $(this).closest(".delete_whole_extra_item_add").remove();
             counter -= 1;
         });
+
     });
 </script>
 
@@ -203,17 +277,30 @@
     $(document).ready(function() {
         $('#myForm').validate({
             rules: {
-                "fee_category_id": {
+                "subject_id[]": {
                     required: true,
+
                 },
-                "class_id[]": {
+                "class_id": {
                     required: true,
+
                 },
-                "ammount[]": {
+                "full_mark[]": {
                     required: true,
+
+                },
+                "subjective_mark[]": {
+                    required: true,
+
+                },
+                "pass_mark[]": {
+                    required: true,
+
                 }
             },
             messages: {
+
+
             },
             errorElement: 'span',
             errorPlacement: function(error, element) {
@@ -229,4 +316,9 @@
         });
     });
 </script>
+
+
+
+
+
 @endsection
