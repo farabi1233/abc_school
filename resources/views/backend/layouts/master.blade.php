@@ -82,7 +82,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
 
-                        <span class="badge badge-warning navbar-badge">{{ Auth::user()->name }}</span>
+                        <span class="badge badge-warning navbar-badge"><h5><i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->name }}</h5></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 

@@ -16,7 +16,7 @@ class UserController extends Controller
 
     public function viewUser()
     {
-        $data['allData'] = User::all();
+        $data['allData'] = User::where('usertype','Admin')->get();
 
         return view('backend.user.view-user', $data);
 
@@ -33,16 +33,19 @@ class UserController extends Controller
         $this->validate($request, [
 
             'name' => 'required',
-            'password' => 'required|min:8',
+            
             'email' => 'required|email|unique:users,email'
 
 
         ]);
+        $code = rand(0000,9999);
         $data = new User();
-        $data->usertype = $request->usertype;
+        $data->usertype = 'Admin';
+        $data->role = $request->role;
         $data->name = $request->name;
         $data->email = $request->email;
-        $data->password = bcrypt($request->password);
+        $data->password = bcrypt($code);
+        $data->code =$code;
         $data->save();
         return redirect()->route('users.view')->with('success', 'Data Addedd Successfully');
         //return view('backend.user.add-user');
@@ -71,7 +74,7 @@ class UserController extends Controller
     {
         $editData = User::find($id);
         $data = User::find($id);
-        $data->usertype = $request->usertype;
+        $data->role = $request->role;
         $data->name = $request->name;
         $data->email = $request->email;
 

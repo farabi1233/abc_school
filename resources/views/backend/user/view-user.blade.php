@@ -62,6 +62,7 @@
                                             <th>User Type</th>
                                             <th>Name</th>
                                             <th>Email</th>
+                                            <th>Password</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -72,9 +73,10 @@
                                             <td>{{ $key+1 }}</td>
 
                                             <!-- <td>{{$user->usertype}}</td> -->
-                                            <td>{{$user->usertype}}</td>
+                                            <td>{{$user->role}}</td>
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
+                                            <td>{{$user->code}}</td>
                                             <td>
                                                 <a class="btn btn-sm btn-primary" href="{{ route('users.edit',$user->id)}}"> <i class="fa fa-edit"></i>Edit</a>
                                                 <a class="btn btn-sm btn-danger" id="delete" href="{{ route('users.delete',$user->id)}}"> <i class="fa fa-trash"></i>Delete</a>

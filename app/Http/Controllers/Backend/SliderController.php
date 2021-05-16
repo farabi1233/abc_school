@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Model\Slider;
-
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,6 +12,7 @@ class SliderController extends Controller
 {
     public function viewSlider()
     {
+       
         $data['allData'] = Slider::all();
         //$data['countLogo'] = Slider::count();
         //dd($data['countLogo']);

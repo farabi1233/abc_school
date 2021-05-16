@@ -55,12 +55,12 @@
                                 <form method="POST" action="{{ route('users.store')}}" id="myForm">
                                     @csrf
                                     <div class="form-row">
-                                        <div class="form-group col-md-4">
-                                            <label for="usertype">User Role</label>
-                                            <select name="usertype" id="usertype" class="form-control">
+                                        <div class="form-group col-md-2">
+                                            <label for="role">User Role</label>
+                                            <select name="role" id="role" class="form-control">
                                                 <option value="">Select Role</option>
                                                 <option value="Admin">Admin</option>
-                                                <option value="User">User</option>
+                                                <option value="Operator">Operator</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
@@ -79,15 +79,7 @@
 
                                             </font>
                                         </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="password">Password</label>
-                                            <input type="password" name="password" id="password" class="form-control">
-                                        </div>
-                                       
-                                        <div class="form-group col-md-4">
-                                            <label for="password">Password</label>
-                                            <input type="password" name="password" id="password2" class="form-control">
-                                        </div>
+                                        
                                         
                                         
                                         <div class="form-group col-md-6">
@@ -139,7 +131,7 @@
     $(document).ready(function() {
         $('#myForm').validate({
             rules: {
-                usertype: {
+                role: {
                     required: true,
                    
                 },
@@ -147,20 +139,13 @@
                     required: true,
                     email: true,
                 },
-                password: {
-                    required: true,
-                    equalTo: '#password'
-                },
-                password2: {
-                    required: true,
-                    minlength: 8
-                },
+               
                 
                 
                 
             },
             messages: {
-                usertype: {
+                role: {
                     required: "Please select user role",
                     
                 },
@@ -168,14 +153,7 @@
                     required: "Please enter a email address",
                     email: "Please enter a vaild email address"
                 },
-                password: {
-                    required: "Please enter confirm password",
-                    equalTo:  "Confirm password dose not match"
-                },
-                password2: {
-                    required: "Please provide a password",
-                    minlength: "Your password must be at least 8 characters long"
-                },
+              
                 
                 
             },
