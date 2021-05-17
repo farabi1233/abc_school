@@ -128,12 +128,12 @@ Route::prefix('setups')->middleware(['test'])->group(function (){
 
 Route::prefix('students')->middleware(['test'])->group(function (){
     
-    Route::get('/reg/view', 'Backend\Student\StudentRegController@viewUser')-> name('students.registration.view');
-    Route::get('/reg/add', 'Backend\Student\StudentRegController@addUser')-> name('students.registration.add');
-    Route::get('/reg/edit/{id}', 'Backend\Student\StudentRegController@editUser') -> name('students.registration.edit');
-    Route::get('/reg/delete/{id}', 'Backend\Student\StudentRegController@deleteUser') -> name('students.registration.delete');
-    Route::post('/reg/update/{id}', 'Backend\Student\StudentRegController@updateUser') -> name('students.registration.update');
-    Route::post('/reg/store', 'Backend\Student\StudentRegController@storeUser') -> name('students.registration.store');
+    Route::get('/reg/view', 'Backend\Student\StudentRegController@view')-> name('students.registration.view');
+    Route::get('/reg/add', 'Backend\Student\StudentRegController@add')-> name('students.registration.add');
+    Route::get('/reg/edit/{id}', 'Backend\Student\StudentRegController@edit') -> name('students.registration.edit');
+    Route::get('/reg/delete/{id}', 'Backend\Student\StudentRegController@delete') -> name('students.registration.delete');
+    Route::post('/reg/update/{id}', 'Backend\Student\StudentRegController@update') -> name('students.registration.update');
+    Route::post('/reg/store', 'Backend\Student\StudentRegController@store') -> name('students.registration.store');
   
 });
 

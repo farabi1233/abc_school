@@ -40,8 +40,11 @@
 
 
                             <h4>
-                                User List
-                                <a class=" btn btn-success float-right" href="{{ route('users.add')}}"> <i class="fa fa-plus-circle"></i> add user</a>
+                                Student List
+
+
+                                <a class=" btn btn-success float-right" href="{{ route('students.registration.add')}}"> <i class="fa fa-plus-circle"></i> Add Student</a>
+
 
                             </h4>
 
@@ -59,28 +62,31 @@
                                     <thead>
                                         <tr>
                                             <th>SL.</th>
-                                            <th>User Type</th>
                                             <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Code</th>
+                                            <th>ID NO</th>
+                                          
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        @foreach($allData as $key => $user)
+                                        @foreach($allData as $key => $value)
                                         <tr>
                                             <td>{{ $key+1 }}</td>
 
-                                            <!-- <td>{{$user->usertype}}</td> -->
-                                            <td>{{$user->role}}</td>
-                                            <td>{{$user->name}}</td>
-                                            <td>{{$user->email}}</td>
-                                            <td>{{$user->code}}</td>
+
+                                            
+                                            <td>{{ $value->class_id}}</td>
+                                            <td>{{ $value->year_id}}</td>
+                                            <td>{{ $value->group_id}}</td>
+                                           
+
                                             <td>
-                                                <a class="btn btn-sm btn-primary" href="{{ route('users.edit',$user->id)}}"> <i class="fa fa-edit"></i>Edit</a>
-                                                <a class="btn btn-sm btn-danger" id="delete" href="{{ route('users.delete',$user->id)}}"> <i class="fa fa-trash"></i>Delete</a>
+                                                <a class="btn btn-sm btn-primary" href="{{ route('students.registration.edit',$value->id)}}"> <i class="fa fa-edit"></i>Edit</a>
+                                                <a class="btn btn-sm btn-danger" id="delete" href="{{ route('students.registration.delete',$value->id)}}"> <i class="fa fa-trash"></i>Delete</a>
                                             </td>
+
+
 
                                         </tr>
 
