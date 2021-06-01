@@ -85,17 +85,17 @@
 
                                             <div class="form-group col-md-2">
                                                 <label for="image">Full Mark</label>
-                                                <input type="text" name="full_mark[]" class="form-control" required>
+                                                <input type="text" value="100" name="full_mark[]" class="form-control" required>
 
                                             </div>
                                             <div class="form-group col-md-2">
                                                 <label for="image">Pass Mark</label>
-                                                <input type="text" name="pass_mark[]" class="form-control" required>
+                                                <input type="text" value="33" name="pass_mark[]" class="form-control" required>
 
                                             </div>
                                             <div class="form-group col-md-2">
                                                 <label for="image">Subjective Mark</label>
-                                                <input type="text" name="subjective_mark[]" class="form-control" required>
+                                                <input type="text" value="100" name="subjective_mark[]" class="form-control" required>
 
                                             </div>
 
@@ -170,17 +170,17 @@
 
                 <div class="form-group col-md-2">
                     <label for="image">Full Mark</label>
-                    <input type="text" name="full_mark[]" class="form-control" required>
+                    <input type="text" value="100" name="full_mark[]" class="form-control" required>
 
                 </div>
                 <div class="form-group col-md-2">
                     <label for="image">Pass Mark</label>
-                    <input type="text" name="pass_mark[]" class="form-control" required>
+                    <input type="text" value="33" name="pass_mark[]" class="form-control" required>
 
                 </div>
                 <div class="form-group col-md-2">
                     <label for="image">Subjective Mark</label>
-                    <input type="text" name="subjective_mark[]" class="form-control" required>
+                    <input type="text" value="100" name="subjective_mark[]" class="form-control" required>
 
                 </div>
 

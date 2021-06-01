@@ -24,7 +24,7 @@ $route = Route::current()->getName();
 
             <li class="nav-item has-treeview {{($prefix=='/users')?'menu-open':''}}">
                 <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-copy"></i>
+                    <i class="fas fa-user-plus"></i>
                     <p>
                         Manage User
                         <i class="fas fa-angle-left right"></i>
@@ -32,20 +32,21 @@ $route = Route::current()->getName();
                     </p>
                 </a>
                 <ul class="nav nav-treeview">
-                    <li class="nav-item">
+                    <li class="nav-list">
                         <a href="{{ route ('users.view') }}" class="nav-link {{($route=='users.view')?'active':''}}">
-                            <i class="far fa-circle nav-icon"></i>
+                            <i class="fas fa-list"></i>
                             <p>View user</p>
                         </a>
                     </li>
 
                 </ul>
             </li>
+           
     @endif
-
+    
             <li class="nav-item has-treeview {{($prefix=='/profiles')?'menu-open':''}}">
                 <a href="#" class="nav-link ">
-                    <i class="nav-icon fas fa-copy"></i>
+                    <i class="fas fa-user-lock"></i>
                     <p>
                         Manage Profile
                         <i class="fas fa-angle-left right"></i>
@@ -72,7 +73,7 @@ $route = Route::current()->getName();
 <!-- Manage setup -->
             <li class="nav-item has-treeview {{($prefix=='/setups')?'menu-open':''}}">
                 <a href="#" class="nav-link ">
-                    <i class="nav-icon fas fa-copy"></i>
+                    <i class="fas fa-tasks"></i>
                     <p>
                         Setup Managment
                         <i class="fas fa-angle-left right"></i>
@@ -152,7 +153,7 @@ $route = Route::current()->getName();
 
             <li class="nav-item has-treeview {{($prefix=='/students')?'menu-open':''}}">
                 <a href="#" class="nav-link ">
-                    <i class="nav-icon fas fa-copy"></i>
+                    <i class="fas fa-book-reader"></i>
                     <p>
                         Manage Student
                         <i class="fas fa-angle-left right"></i>

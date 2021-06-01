@@ -78,7 +78,7 @@ class StudentRegController extends Controller
                 $user->code =$code;
                 $user->name = $request->name;
                 $user->fname = $request->fname;
-                $user->mname = $request->mname;
+                $user->mnames = $request->mname;
                 $user->mobile = $request->mobile;
                 $user->address = $request->address;
                 $user->gender = $request->gender;
