@@ -57,7 +57,8 @@ class StudentRegController extends Controller
                 } 
             }else {
                     $student = User::where('usertype', 'student')->orderBy('id', 'DESC')->first();
-                    $studentId = $student + 1;
+                    //dd($student);
+                    $studentId = $student->id + 1;
                     if ($studentId < 10) {
                         $id_no = '000' . $studentId;
                     }
