@@ -18,18 +18,24 @@ class StudentRegController extends Controller
     public function view()
     {
 
-
-        $data['allData'] = AssignStudent::all();
+        $data['years'] = StudentYear::orderBy('id','desc')->get();
+        $data['classes'] = StudentClass::orderBy('id','asc')->get();
+        $data['year_id'] = StudentYear::orderBy('id','desc')->first()->id;
+        $data['class_id'] = StudentClass::orderBy('id','desc')->first()->id;
+        
+        
+        
+        $data['allData'] = AssignStudent::where('class_id',$data['class_id'])->where('year_id',$data['year_id'] )->get();
         //$data['countLogo'] = Slider::count();
         //dd($data['countLogo']);
         return view('backend.student.student_reg.view', $data);
     }
     public function add()
     {
-        $data['years'] = StudentYear::all();
-        $data['classes'] = StudentClass::all();
-        $data['groups'] = StudentGroup::all();
-        $data['shifts'] = StudentShift::all();
+        $data['years'] = StudentYear::orderBy('id','desc')->get();
+        $data['classes'] = StudentClass::orderBy('id','asc')->get();
+        $data['groups'] = StudentGroup::orderBy('id','desc')->get();
+        $data['shifts'] = StudentShift::orderBy('id','desc')->get();
         return view('backend.student.student_reg.add', $data);
     }
 
@@ -114,6 +120,20 @@ class StudentRegController extends Controller
 
 
 
+    }
+    public function yearClassWise(Request $request)
+    {
+        $data['years'] = StudentYear::orderBy('id','desc')->get();
+        $data['classes'] = StudentClass::orderBy('id','asc')->get();
+        $data['year_id'] = $request->year_id;
+        $data['class_id'] = $request->class_id;
+        
+        
+        
+        $data['allData'] = AssignStudent::where('class_id',$data['class_id'])->where('year_id',$data['year_id'] )->get();
+        //$data['countLogo'] = Slider::count();
+        //dd($data['countLogo']);
+        return view('backend.student.student_reg.view', $data);
     }
     public function editSlider($id)
     {
