@@ -150,11 +150,9 @@
                                                     </td>
                                                     <td>
                                                         <a class="btn btn-sm btn-primary"
-                                                            href="{{ route('students.registration.edit', $value->id) }}">
+                                                            href="{{ route('students.registration.edit', $value->student_id) }}">
                                                             <i class="fa fa-edit"></i>Edit</a>
-                                                        <a class="btn btn-sm btn-danger" id="delete"
-                                                            href="{{ route('students.registration.delete', $value->id) }}">
-                                                            <i class="fa fa-trash"></i>Delete</a>
+                                                       
                                                     </td>
 
 
@@ -204,11 +202,9 @@
                                                         </td>
                                                         <td>
                                                             <a class="btn btn-sm btn-primary"
-                                                                href="{{ route('students.registration.edit', $value->id) }}">
+                                                                href="{{ route('students.registration.edit', $value->student_id) }}">
                                                                 <i class="fa fa-edit"></i>Edit</a>
-                                                            <a class="btn btn-sm btn-danger" id="delete"
-                                                                href="{{ route('students.registration.delete', $value->id) }}">
-                                                                <i class="fa fa-trash"></i>Delete</a>
+                                                            
                                                         </td>
 
 

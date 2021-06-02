@@ -53,32 +53,34 @@
                         <div class="card-body">
                             <div class="tab-content p-0">
                                 <!-- Morris chart - Sales -->
-                                <form method="POST" action="{{(@$editData)?route('students.registration.update',$editData->id):route('students.registration.store')}} " id="myForm" enctype="multipart/form-data">
+                                <form method="POST" action="{{(@$editData)?route('students.registration.update',$editData->student_id):route('students.registration.store')}} " id="myForm" enctype="multipart/form-data">
                                     @csrf
+
+                                    <input type="hidden" name="id" value="{{ @$editData->id }}">
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="image">Student Name <font style="color: red;">*</font></label>
-                                            <input type="text" value="{{@$editData->name}}" name="name" class="form-control form-control-sm" id="name" required>
+                                            <input type="text" value="{{@$editData['student']['name']}}" name="name" class="form-control form-control-sm" id="name" required>
 
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="image">Fathers Name <font style="color: red;">*</font></label>
-                                            <input type="text" value="{{@$editData->fname}}" name="fname" class="form-control form-control-sm" id="fname" required>
+                                            <input type="text" value="{{@$editData['student']['fname']}}" name="fname" class="form-control form-control-sm" id="fname" required>
 
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="image">Mothers Name <font style="color: red;">*</font></label>
-                                            <input type="text" value="{{@$editData->mname}}" name="mname" class="form-control form-control-sm" id="mname" required>
+                                            <input type="text" value="{{@$editData['student']['mnames']}}" name="mname" class="form-control form-control-sm" id="mname" required>
 
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="image">Mobile No <font style="color: red;">*</font></label>
-                                            <input type="text" value="{{@$editData->mobile}}" name="mobile" class="form-control form-control-sm" id="mobile" required>
+                                            <input type="text" value="{{@$editData['student']['mobile']}}" name="mobile" class="form-control form-control-sm" id="mobile" required>
 
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="image">Address <font style="color: red;">*</font></label>
-                                            <input type="text" value="{{@$editData->address}}" name="address" class="form-control form-control-sm" id="address" required>
+                                            <input type="text" value="{{@$editData['student']['address']}}" name="address" class="form-control form-control-sm" id="address" required>
 
                                         </div>
                                         <div class="form-group col-md-4">
@@ -87,9 +89,9 @@
                                             <select class="form-control form-control-sm" name="gender">
                                                 <option value="">Select Gender <font style="color: red;">*</font>
                                                 </option>
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
-                                                <option value="Others">Others</option>
+                                                <option value="Male" {{(@$editData['student']['gender']=='Male')?'selected':''}}>Male</option>
+                                                <option value="Female" {{(@$editData['student']['gender']=='Female')?'selected':''}}>Female</option>
+                                                <option value="Others" {{(@$editData['student']['gender']=='Others')?'selected':''}}>Others</option>
                                             </select>
 
                                         </div>
@@ -99,9 +101,9 @@
 
                                             <select class="form-control form-control-sm" name="religion">
                                                 <option value="">Select Religion</option>
-                                                <option value="Male">Islam</option>
-                                                <option value="Female">Hindu</option>
-                                                <option value="Others">Others</option>
+                                                <option value="Islam" {{(@$editData['student']['religion']=='Islam')?'selected':''}} >Islam</option>
+                                                <option value="Hindu" {{(@$editData['student']['religion']=='Hindu')?'selected':''}}>Hindu</option>
+                                                <option value="Others" {{(@$editData['student']['religion']=='Others')?'selected':''}}>Others</option>
                                             </select>
 
                                         </div>
@@ -110,12 +112,12 @@
 
                                         <div class="form-group col-md-4">
                                             <label for="image">Date of Birth <font style="color: red;">*</font></label>
-                                            <input id="datepicker" class="form-control form-control-sm singledatepicker" type="text" value="{{@$editData->dob}}" name="dob">
+                                            <input id="datepicker" class="form-control form-control-sm singledatepicker" type="text" value="{{@$editData['student']['dob']}}" name="dob">
 
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="image">Discount</label>
-                                            <input class="form-control form-control-sm" type="text" value="{{@$editData->discount}}" name="discount">
+                                            <input class="form-control form-control-sm" type="text" value="{{@$editData['discount']['discount']}}" name="discount">
 
                                         </div>
 
@@ -124,7 +126,7 @@
                                             <select class="form-control  form-control-sm" name="year_id">
                                                 <option value="">Select Year</option>
                                                 @foreach($years as $year)
-                                                <option value="{{$year->id}}">{{$year->name}}</option>
+                                                <option value="{{$year->id}}" {{(@$editData->year_id == $year->id)?'selected':''}}>{{$year->name}}</option>
                                                 @endforeach
 
                                             </select>
@@ -135,7 +137,7 @@
                                             <select class="form-control  form-control-sm" name="class_id">
                                                 <option value="">Selsect Class</option>
                                                 @foreach($classes as $class)
-                                                <option value="{{$class->id}}">{{$class->name}}</option>
+                                                <option value="{{$class->id}}" {{(@$editData->class_id == $class->id)?'selected':''}}>{{$class->name}}</option>
                                                 @endforeach
 
                                             </select>
@@ -146,7 +148,7 @@
                                             <select class="form-control  form-control-sm " name="group_id">
                                                 <option value="">Select Group</option>
                                                 @foreach($groups as $group)
-                                                <option value="{{$group->id}}">{{$group->name}}</option>
+                                                <option value="{{$group->id}}" {{(@$editData->group_id == $group->id)?'selected':''}}>{{$group->name}}</option>
                                                 @endforeach
 
                                             </select>
@@ -158,7 +160,7 @@
                                             <select class="form-control  form-control-sm" name="shift_id">
                                                 <option value="">Select Shift</option>
                                                 @foreach($shifts as $shift)
-                                                <option value="{{$shift->id}}">{{$shift->name}}</option>
+                                                <option value="{{$shift->id}}" {{(@$editData->shift_id == $shift->id)?'selected':''}}>{{$shift->name}}</option>
                                                 @endforeach
 
                                             </select>
@@ -170,7 +172,7 @@
 
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <img id="showImage" src="{{url('upload/no_image.jpg') }}" alt="" style=" border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px; ">
+                                            <img id="showImage" src="{{(!empty(@$editData['student']['image']))? url('upload/student_images/'.@$editData['student']['image']):url('upload/no_image.jpg') }}" alt="" style=" border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px; ">
 
                                         </div>
 

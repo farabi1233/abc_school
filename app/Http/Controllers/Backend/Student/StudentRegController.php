@@ -135,29 +135,61 @@ class StudentRegController extends Controller
         //dd($data['countLogo']);
         return view('backend.student.student_reg.view', $data);
     }
-    public function editSlider($id)
+    public function edit($student_id)
     {
-        $editData = Slider::find($id);
-        //dd( $editData);
-        return view('backend.slider.edit-slider', compact('editData'));
+        $data['editData'] = AssignStudent::with(['student','discount'])->where('student_id',$student_id)->first();
+      // dd($data['editData']->toArray());
+      // dd($data['editData']->id);
+        $data['years'] = StudentYear::orderBy('id','desc')->get();
+        $data['classes'] = StudentClass::all();
+        $data['groups'] = StudentGroup::all();
+        $data['shifts'] = StudentShift::all();
+        return view('backend.student.student_reg.add', $data);
     }
-    public function updateSlider(Request $request, $id)
+    public function update(Request $request, $student_id)
     {
-        $data = Slider::find($id);
-        $data->short_title = $request->short_title;
-        $data->long_title = $request->long_title;
-        $data->update_by = Auth::user()->id;
-        if ($request->file('image')) {
-            $file = $request->file('image');
-            @unlink(public_path('upload/slider_images/' . $data->image));
-            $filename   = date('YmdHi') . $file->getClientOriginalName();
-            $file->move(public_path('upload/slider_images'), $filename);
-            $data['image'] = $filename;
-        }
+        
+        DB::transaction(function () use ($request,$student_id) {
 
+          
+                $user = User::where('id',$student_id)->first();
+                
+              
+                $user->name = $request->name;
+                $user->fname = $request->fname;
+                $user->mnames = $request->mname;
+                $user->mobile = $request->mobile;
+                $user->address = $request->address;
+                $user->gender = $request->gender;
+                $user->religion = $request->religion;
+                $user->gender = $request->gender;
+                $user->dob = date('Y-m-d', strtotime($request->dob));
+                if ($request->file('image')) {
+                    $file = $request->file('image');
+                    @unlink(public_path('upload/student_images/' . $user->image));
 
-        $data->save();
-        return redirect()->route('sliders.view')->with('success', 'Edit Slider Successfully');
+                    $filename   = date('YmdHi') . $file->getClientOriginalName();
+                    $file->move(public_path('upload/student_images'), $filename);
+                    $user['image'] = $filename;
+                }
+                $user->save();
+
+                $assign_student = AssignStudent::where('id',$request->id)->where('student_id',$student_id)->first();
+                
+                $assign_student->year_id = $request->year_id;
+                $assign_student->class_id = $request->class_id;
+                $assign_student->group_id = $request->group_id;
+                $assign_student->shift_id = $request->shift_id;
+                $assign_student->save();
+
+                $discount_student = DiscountStudent::where('assign_student_id',$request->id)->first();
+                
+                $discount_student->discount = $request->discount;
+                $discount_student->save();
+            
+        });
+        
+        return redirect()->route('students.registration.view')->with('success','Data Updated Successfully');
     }
 
     public function deleteSlider($id)
