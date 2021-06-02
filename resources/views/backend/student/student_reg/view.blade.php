@@ -123,11 +123,12 @@
                                                 <th>Roll</th>
                                                 <th>Year</th>
                                                 <th>Class</th>
+                                                <th>Image</th>
                                                 @if (Auth::User()->role =="Admin")
                                                 <th>Code</th> 
                                                 @endif
                                                 
-                                                <th>Image</th>
+                                               
                                                 <th width="12%">Action</th>
                                             </tr>
                                         </thead>
@@ -140,18 +141,24 @@
                                                     <td>{{ $value->roll }}</td>
                                                     <td>{{ $value['student_year']['name'] }} </td>
                                                     <td>{{ $value['student_class']['name'] }}</td>
-                                                    @if (Auth::User()->role =="Admin")
-                                                    <td>{{ $value['student']['code'] }}</td>
-                                                    @endif
+                                                    
                                                     <td><img id="showImage"
                                                             src="{{ !empty($value['student']['image']) ? url('upload/student_images/' . $value['student']['image']) : url('upload/no_image.jpg') }}"
                                                             alt=""
                                                             style="width:75px; height:80px; border: 1px solid black #00">
                                                     </td>
+                                                    @if (Auth::User()->role =="Admin")
+                                                    <td>{{ $value['student']['code'] }}</td>
+                                                    @endif
                                                     <td>
                                                         <a class="btn btn-sm btn-primary"
                                                             href="{{ route('students.registration.edit', $value->student_id) }}">
-                                                            <i class="fa fa-edit"></i>Edit</a>
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+                                                        <a class="btn btn-sm btn-success"
+                                                            href="{{ route('students.registration.promotion', $value->student_id) }}">
+                                                            <i class="fa fa-arrow-right"></i>
+                                                        </a>
                                                        
                                                     </td>
 
@@ -175,8 +182,9 @@
                                                     <th>Roll</th>
                                                     <th>Year</th>
                                                     <th>Class</th>
-                                                    @if (Auth::User()->role =="Admin")
                                                     <th>Code</th> 
+                                                    @if (Auth::User()->role =="Admin")
+                                                    
                                                     @endif
                                                     
                                                     <th>Image</th>
@@ -192,18 +200,24 @@
                                                         <td>{{ $value->roll }}</td>
                                                         <td>{{ $value['student_year']['name'] }} </td>
                                                         <td>{{ $value['student_class']['name'] }}</td>
-                                                        @if (Auth::User()->role =="Admin")
-                                                        <td>{{ $value['student']['code'] }}</td>
-                                                        @endif
+                                                       
                                                         <td><img id="showImage"
                                                                 src="{{ !empty($value['student']['image']) ? url('upload/student_images/' . $value['student']['image']) : url('upload/no_image.jpg') }}"
                                                                 alt=""
                                                                 style="width:75px; height:80px; border: 1px solid black #00">
                                                         </td>
+                                                        @if (Auth::User()->role =="Admin")
+                                                        <td>{{ $value['student']['code'] }}</td>
+                                                        @endif
                                                         <td>
                                                             <a class="btn btn-sm btn-primary"
                                                                 href="{{ route('students.registration.edit', $value->student_id) }}">
-                                                                <i class="fa fa-edit"></i>Edit</a>
+                                                                <i class="fa fa-edit"></i>
+                                                            </a>
+                                                            <a class="btn btn-sm btn-success"
+                                                            href="{{ route('students.registration.promotion', $value->student_id) }}">
+                                                            <i class="fa fa-arrow-right"></i>
+                                                        </a>
                                                             
                                                         </td>
 

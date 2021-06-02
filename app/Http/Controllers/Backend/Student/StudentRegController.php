@@ -146,6 +146,7 @@ class StudentRegController extends Controller
         $data['shifts'] = StudentShift::all();
         return view('backend.student.student_reg.add', $data);
     }
+    
     public function update(Request $request, $student_id)
     {
         
@@ -192,15 +193,64 @@ class StudentRegController extends Controller
         return redirect()->route('students.registration.view')->with('success','Data Updated Successfully');
     }
 
-    public function deleteSlider($id)
+    public function promotion($student_id)
     {
-        $slider = Slider::find($id);
+        $data['editData'] = AssignStudent::with(['student','discount'])->where('student_id',$student_id)->first();
+      // dd($data['editData']->toArray());
+      // dd($data['editData']->id);
+        $data['years'] = StudentYear::orderBy('id','desc')->get();
+        $data['classes'] = StudentClass::all();
+        $data['groups'] = StudentGroup::all();
+        $data['shifts'] = StudentShift::all();
+        return view('backend.student.student_reg.promotion-student', $data);
+    }
+   
+    public function promotionStore(Request $request, $student_id)
+    {
+        
+        DB::transaction(function () use ($request,$student_id) {
 
-        if (file_exists('upload/slider_images/' . $slider->image)  && !empty($slider->image)) {
-            unlink('upload/slider_images/' . $slider->image);
-        }
+          
+                $user = User::where('id',$student_id)->first();
+                
+              
+                $user->name = $request->name;
+                $user->fname = $request->fname;
+                $user->mnames = $request->mname;
+                $user->mobile = $request->mobile;
+                $user->address = $request->address;
+                $user->gender = $request->gender;
+                $user->religion = $request->religion;
+                $user->gender = $request->gender;
+                $user->dob = date('Y-m-d', strtotime($request->dob));
+                if ($request->file('image')) {
+                    $file = $request->file('image');
+                    @unlink(public_path('upload/student_images/' . $user->image));
 
-        $slider->delete();
-        return redirect()->route('sliders.view')->with('success', 'Slider Deleted Successfully');
+                    $filename   = date('YmdHi') . $file->getClientOriginalName();
+                    $file->move(public_path('upload/student_images'), $filename);
+                    $user['image'] = $filename;
+                }
+                $user->save();
+
+                $assign_student = new AssignStudent();
+                
+                $assign_student->student_id = $student_id;
+                $assign_student->year_id = $request->year_id;
+                $assign_student->class_id = $request->class_id;
+                $assign_student->group_id = $request->group_id;
+                $assign_student->shift_id = $request->shift_id;
+                $assign_student->save();
+
+                $discount_student = new DiscountStudent();
+                
+                $discount_student->assign_student_id = $assign_student->id;
+                $discount_student->fee_category_id = '1';
+                $discount_student->discount = $request->discount;
+                $discount_student->save();
+            
+        });
+        
+        return redirect()->route('students.registration.view')->with('success','Promoted Successfully');
     }
 }
