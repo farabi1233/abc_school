@@ -10,6 +10,7 @@ use App\Model\StudentGroup;
 use App\Model\StudentShift;
 use App\Model\StudentYear;
 use App\User;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -252,5 +253,25 @@ class StudentRegController extends Controller
         });
         
         return redirect()->route('students.registration.view')->with('success','Promoted Successfully');
+    }
+
+    public function details($student_id)
+    {
+        $data['editData'] = AssignStudent::with(['student','discount'])->where('student_id',$student_id)->first();
+      // dd($data['editData']->toArray());
+      // dd($data['editData']->id);
+        $data['years'] = StudentYear::orderBy('id','desc')->get();
+        $data['classes'] = StudentClass::all();
+        $data['groups'] = StudentGroup::all();
+        $data['shifts'] = StudentShift::all();
+       // return view('backend.student.student_reg.details-pdf', $data);
+       
+       $pdf = PDF::loadView('backend.student.student_reg.details-pdf', $data);
+       return $pdf->stream();
+       return view('backend.student.student_reg.details-pdf', $data);
+        
+       // return $pdf->download('student.pdf');
+      // dd('ok');
+        
     }
 }

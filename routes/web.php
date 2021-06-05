@@ -135,7 +135,8 @@ Route::prefix('students')->middleware(['test'])->group(function (){
     Route::post('/reg/update/{student_id}', 'Backend\Student\StudentRegController@update') -> name('students.registration.update');
     Route::post('/reg/store', 'Backend\Student\StudentRegController@store') -> name('students.registration.store');
     Route::post('/promotion/store/{student_id}', 'Backend\Student\StudentRegController@promotionStore') -> name('students.promotion.store');
-    
+    Route::get('/reg/details/{student_id}', 'Backend\Student\StudentRegController@details') -> name('students.registration.details');
+
     Route::get('/reg/delete/{id}', 'Backend\Student\StudentRegController@delete') -> name('students.registration.delete');
     Route::get('year-class-wise/', 'Backend\Student\StudentRegController@yearClassWise') -> name('students.year.class.wise');
 });

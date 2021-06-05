@@ -151,6 +151,11 @@
                                                     <td>{{ $value['student']['code'] }}</td>
                                                     @endif
                                                     <td>
+                                                        
+<a target="_blank" class="btn btn-sm btn-primary"
+href="{{ route('students.registration.details', $value->student_id) }}">
+<i class="fa fa-eye"></i>
+</a>
                                                         <a class="btn btn-sm btn-primary"
                                                             href="{{ route('students.registration.edit', $value->student_id) }}">
                                                             <i class="fa fa-edit"></i>
@@ -210,6 +215,11 @@
                                                         <td>{{ $value['student']['code'] }}</td>
                                                         @endif
                                                         <td>
+                                                            
+<a target="_blank" class="btn btn-sm btn-primary"
+href="{{ route('students.registration.details', $value->student_id) }}">
+<i class="fa fa-eye"></i>
+</a>
                                                             <a class="btn btn-sm btn-primary"
                                                                 href="{{ route('students.registration.edit', $value->student_id) }}">
                                                                 <i class="fa fa-edit"></i>
