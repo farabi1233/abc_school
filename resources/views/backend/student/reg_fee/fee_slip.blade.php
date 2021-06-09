@@ -1,3 +1,11 @@
+@php
+$registrationFee = App\Model\FeeCategoryAmmount::where(['fee_category_id'=>'1','class_id'=>@$details->class_id])->first();
+$originalFee = $registrationFee->amount;
+$discount = @$details['discount']['discount'];
+$discountTableFee = $discount/100*$originalFee;
+$finalFee = (int)$originalFee-(int)$discountTableFee;
+@endphp
+
 <!doctype html>
 <html>
 <head>
@@ -108,38 +116,164 @@
       
     </div>
 
-    
-   
-    <div class="invoice-box">
-        <h4>Office Copy:</h4>
-        <table cellpadding="0" cellspacing="0">
-          
+    <div class="row">
+        <div class="invoice-box ">
             
-           @php
-            $registrationFee = App\Model\FeeCategoryAmmount::where(['fee_category_id'=>'1','class_id'=>@$details->class_id])->first();
-            $originalFee = $registrationFee->amount;
-            $discount = @$details['discount']['discount'];
-            $discountTableFee = $discount/100*$originalFee;
-            $finalFee = (int)$originalFee-(int)$discountTableFee;
-           @endphp
+            <table cellpadding="0" cellspacing="0">
+              
+                
+              
+                <tr class="heading">
+                    <td>
+                    Office Copy
+                    </td>
+                    
+                    <td>
+                       
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td>
+                        Student ID No
+                    </td>
+                    
+                    <td>
+                        {{@$details['student']['id_no']}}
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td>
+                        Student Name
+                    </td>
+                    
+                    <td>
+                        {{@$details['student']['name']}}
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td>
+                        Father's Name
+                    </td>
+                    
+                    <td>
+                        {{@$details['student']['fname']}}
+                    </td>
+                </tr>
+                
+                <tr class="item">
+                    <td>
+                        Mother's Name
+                    </td>
+                    
+                    <td>
+                        {{@$details['student']['mnames']}}
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td>
+                        Roll
+                    </td>
+                    
+                    <td>
+                        {{@$details['roll']}}
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td>
+                        Academic Year
+                    </td>
+                    
+                    <td>
+                        {{@$details['student_year']['name']}}
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td>
+                       Class
+                    </td>
+                    
+                    <td>
+                        {{@$details['student_class']['name']}}
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td>
+                       Group
+                    </td>
+                    
+                    <td>
+                        {{@$details['student_group']['name']}}
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td>
+                       Shift
+                    </td>
+                    
+                    <td>
+                        {{@$details['student_shift']['name']}}
+                    </td>
+                </tr>
+                <tr class="heading">
+                    <td>
+                      Registration Fee
+                    </td>
+                    
+                    <td>
+                        {{$originalFee}} Tk
+                    </td>
+                </tr>
+                <tr class="heading">
+                    <td>
+                       Discount
+                    </td>
+                    
+                    <td>
+                        {{$discount}} %
+                    </td>
+                </tr>
+                <tr class="heading">
+                    <td>
+                       Discounted Registration Fee
+                    </td>
+                    
+                    <td>
+                        {{$finalFee}} Tk
+                    </td>
+                </tr>
+                <tr class="last-item">
+                    <td>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <footer>
+                    
+            </footer>
+        </div>
+        
+    </div>
+   
+    
+
+    <hr style="border: dashed; color: #DDD">
+    <div class="row"></div>
+
+    <div class="invoice-box ">
+        
+        <table cellpadding="0" cellspacing="0" style="margin-top: 480px">
+          
+           
             <tr class="heading">
                 <td>
-                Registration Fee Payslip
+                Student Copy:
                 </td>
                 
                 <td>
-                    ID #{{@$details['student']['id_no']}}
+                  || Student ID #{{@$details['student']['id_no']}}
                 </td>
             </tr>
-            <tr class="item">
-                <td>
-                    Student ID No
-                </td>
-                
-                <td>
-                    {{@$details['student']['id_no']}}
-                </td>
-            </tr>
+            
             <tr class="item">
                 <td>
                     Student Name
@@ -149,25 +283,7 @@
                     {{@$details['student']['name']}}
                 </td>
             </tr>
-            <tr class="item">
-                <td>
-                    Father's Name
-                </td>
-                
-                <td>
-                    {{@$details['student']['fname']}}
-                </td>
-            </tr>
-            
-            <tr class="item">
-                <td>
-                    Mother's Name
-                </td>
-                
-                <td>
-                    {{@$details['student']['mnames']}}
-                </td>
-            </tr>
+           
             <tr class="item">
                 <td>
                     Roll
@@ -195,24 +311,8 @@
                     {{@$details['student_class']['name']}}
                 </td>
             </tr>
-            <tr class="item">
-                <td>
-                   Group
-                </td>
-                
-                <td>
-                    {{@$details['student_group']['name']}}
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                   Shift
-                </td>
-                
-                <td>
-                    {{@$details['student_shift']['name']}}
-                </td>
-            </tr>
+           
+            
             <tr class="heading">
                 <td>
                   Registration Fee
@@ -245,112 +345,12 @@
                 </td>
             </tr>
         </table>
+    </div>
         <br>
         <footer>
                 
         </footer>
     </div>
-
-    <hr style="border: dashed; color: #DDD">
-
-    {{-- <div class="invoice-box">
-        <h4>Student Copy:</h4>
-        <table cellpadding="0" cellspacing="0">
-          
-            
-           @php
-            $registrationFee = App\Model\FeeCategoryAmmount::where(['fee_category_id'=>'1','class_id'=>@$details->class_id])->first();
-            $originalFee = $registrationFee->amount;
-            $discount = @$details['discount']['discount'];
-            $discountTableFee = $discount/100*$originalFee;
-            $finalFee = (int)$originalFee-(int)$discountTableFee;
-           @endphp
-            <tr class="heading">
-                <td>
-                Registration Fee Payslip
-                </td>
-                
-                <td>
-                    ID #{{@$details['student']['id_no']}}
-                </td>
-            </tr>
-            
-            <tr class="item">
-                <td>
-                    Student Name
-                </td>
-                
-                <td>
-                    {{@$details['student']['name']}}
-                </td>
-            </tr>
-           
-            <tr class="item">
-                <td>
-                    Roll
-                </td>
-                
-                <td>
-                    {{@$details['roll']}}
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                    Academic Year
-                </td>
-                
-                <td>
-                    {{@$details['student_year']['name']}}
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                   Class
-                </td>
-                
-                <td>
-                    {{@$details['student_class']['name']}}
-                </td>
-            </tr>
-           
-            
-            <tr class="heading">
-                <td>
-                  Registration Fee
-                </td>
-                
-                <td>
-                    {{$originalFee}} Tk
-                </td>
-            </tr>
-            <tr class="heading">
-                <td>
-                   Discount
-                </td>
-                
-                <td>
-                    {{$discount}} %
-                </td>
-            </tr>
-            <tr class="heading">
-                <td>
-                   Discounted Registration Fee
-                </td>
-                
-                <td>
-                    {{$finalFee}} Tk
-                </td>
-            </tr>
-            <tr class="last-item">
-                <td>
-                </td>
-            </tr>
-        </table>
-        <br>
-        <footer>
-                
-        </footer>
-    </div> --}}
     
 </body>
 </html>
