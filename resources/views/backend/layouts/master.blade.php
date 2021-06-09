@@ -215,6 +215,7 @@
 
     <script src="{{ asset('backend/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('backend/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script>
         $(function() {
             $("#example1").DataTable({

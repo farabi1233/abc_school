@@ -2,7 +2,6 @@
 $prefix = Request::route()->getPrefix();
 $photo = Auth::user()->image;
 $route = Route::current()->getName();
-
 @endphp
 <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
@@ -166,11 +165,21 @@ $route = Route::current()->getName();
                             <i class="far fa-circle nav-icon"></i>
                             <p>Student Registration</p>
                         </a>
-                        <a href="{{ route ('students.roll.view') }}" class="nav-link {{($route=='students.registration.view')?'active':''}}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Roll GEnerate</p>
-                        </a>
+                        
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route ('students.roll.view') }}" class="nav-link {{($route=='students.roll.view')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Roll Generate</p>
+                        </a>                                                                     
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route ('students.reg_fee.view') }}" class="nav-link {{($route=='students.reg_fee.view')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Reg Fee</p>
+                        </a>                                                                     
+                    </li>
+                    
                   
                    
                 </ul>

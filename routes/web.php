@@ -148,6 +148,14 @@ Route::prefix('students')->middleware(['test'])->group(function (){
     Route::get('/roll/view', 'Backend\Student\StudentRollController@view')->name('students.roll.view');
     Route::post('/roll/store', 'Backend\Student\StudentRollController@store')->name('students.roll.store');
     Route::get('/roll/get-student', 'Backend\Student\StudentRollController@getStudent')->name('students.roll.get-student');
+    //Student Reg Fee
+    
+
+    Route::get('/reg_fee/view', 'Backend\Student\StudentRegFeeController@view')->name('students.reg_fee.view');
+    Route::post('/reg_fee/store', 'Backend\Student\StudentRegFeeController@store')->name('students.reg_fee.store');
+    Route::get('/reg_fee/get-student', 'Backend\Student\StudentRegFeeController@getStudent')->name('students.reg_fee.get-student');
+    Route::get('/reg_fee/pay-slip', 'Backend\Student\StudentRegFeeController@paySlip')->name('students.reg.fee.payslip');
+   
 });
 
 
