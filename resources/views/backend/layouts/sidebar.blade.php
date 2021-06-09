@@ -180,6 +180,20 @@ $route = Route::current()->getName();
                         </a>                                                                     
                     </li>
                     
+                    <li class="nav-item">
+                        <a href="{{ route ('students.monthly_fee.view') }}" class="nav-link {{($route=='students.monthly_fee.view')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Monthly Fee</p>
+                        </a>                                                                     
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="{{ route ('students.exam_fee.view') }}" class="nav-link {{($route=='students.exam_fee.view')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Exam Fee</p>
+                        </a>                                                                     
+                    </li>
+                    
                   
                    
                 </ul>

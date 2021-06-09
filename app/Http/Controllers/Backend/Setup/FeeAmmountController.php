@@ -37,7 +37,7 @@ class FeeAmmountController extends Controller
                 $fee_ammount = new FeeCategoryAmmount();
                 $fee_ammount->fee_category_id = $request->fee_category_id;
                 $fee_ammount->class_id = $request->class_id[$i];
-                $fee_ammount->ammount = $request->ammount[$i];
+                $fee_ammount->amount = $request->ammount[$i];
                 $fee_ammount->save();
             }
             return redirect()->route('setups.student.fee.ammount.view')->with('success', 'Fee Ammount addedd Successfully');
@@ -66,7 +66,7 @@ class FeeAmmountController extends Controller
                 $fee_ammount = new FeeCategoryAmmount();
                 $fee_ammount->fee_category_id = $request->fee_category_id;
                 $fee_ammount->class_id = $request->class_id[$i];
-                $fee_ammount->ammount = $request->ammount[$i];
+                $fee_ammount->amount = $request->ammount[$i];
                 $fee_ammount->save();
             }
             return redirect()->route('setups.student.fee.ammount.view')->with('success', 'Fee Ammount Edited Successfully');

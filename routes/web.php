@@ -148,13 +148,24 @@ Route::prefix('students')->middleware(['test'])->group(function (){
     Route::get('/roll/view', 'Backend\Student\StudentRollController@view')->name('students.roll.view');
     Route::post('/roll/store', 'Backend\Student\StudentRollController@store')->name('students.roll.store');
     Route::get('/roll/get-student', 'Backend\Student\StudentRollController@getStudent')->name('students.roll.get-student');
-    //Student Reg Fee
-    
 
+    //Student Reg Fee
     Route::get('/reg_fee/view', 'Backend\Student\StudentRegFeeController@view')->name('students.reg_fee.view');
     Route::post('/reg_fee/store', 'Backend\Student\StudentRegFeeController@store')->name('students.reg_fee.store');
     Route::get('/reg_fee/get-student', 'Backend\Student\StudentRegFeeController@getStudent')->name('students.reg_fee.get-student');
     Route::get('/reg_fee/pay-slip', 'Backend\Student\StudentRegFeeController@paySlip')->name('students.reg.fee.payslip');
+   
+    //Student Monthly Reg Fee
+    Route::get('/monthly_fee/view', 'Backend\Student\StudentMonthlyFeeController@view')->name('students.monthly_fee.view');
+    Route::post('/monthly_fee/store', 'Backend\Student\StudentMonthlyFeeController@store')->name('students.monthly_fee.store');
+    Route::get('/monthly_fee/get-student', 'Backend\Student\StudentMonthlyFeeController@getStudent')->name('students.monthly_fee.get-student');
+    Route::get('/monthly_fee/pay-slip', 'Backend\Student\StudentMonthlyFeeController@paySlip')->name('students.monthly_fee.payslip');
+
+    //Student exam Fee
+    Route::get('/exam_fee/view', 'Backend\Student\StudentExamFeeController@view')->name('students.exam_fee.view');
+    Route::post('/exam_fee/store', 'Backend\Student\StudentExamFeeController@store')->name('students.exam_fee.store');
+    Route::get('/exam_fee/get-student', 'Backend\Student\StudentExamFeeController@getStudent')->name('students.exam_fee.get-student');
+    Route::get('/exam_fee/pay-slip', 'Backend\Student\StudentExamFeeController@paySlip')->name('students.exam_fee.payslip');
    
 });
 
