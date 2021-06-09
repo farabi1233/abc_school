@@ -128,6 +128,7 @@ Route::prefix('setups')->middleware(['test'])->group(function (){
 
 Route::prefix('students')->middleware(['test'])->group(function (){
     
+    Route::get('/reg/download-details', 'Backend\Student\StudentRegController@download')-> name('students.registration.download');
     Route::get('/reg/view', 'Backend\Student\StudentRegController@view')-> name('students.registration.view');
     Route::get('/reg/add', 'Backend\Student\StudentRegController@add')-> name('students.registration.add');
     Route::get('/reg/edit/{student_id}', 'Backend\Student\StudentRegController@edit') -> name('students.registration.edit');
@@ -139,7 +140,17 @@ Route::prefix('students')->middleware(['test'])->group(function (){
 
     Route::get('/reg/delete/{id}', 'Backend\Student\StudentRegController@delete') -> name('students.registration.delete');
     Route::get('year-class-wise/', 'Backend\Student\StudentRegController@yearClassWise') -> name('students.year.class.wise');
+
+
+    //Roll generate 
+    
+
+    Route::get('/roll/view', 'Backend\Student\StudentRollController@view')->name('students.roll.view');
+    Route::post('/roll/store', 'Backend\Student\StudentRollController@store')->name('students.roll.store');
+    Route::get('/roll/get-student', 'Backend\Student\StudentRollController@getStudent')->name('students.roll.get-student');
 });
+
+
 
 
 

@@ -27,8 +27,7 @@ class StudentRegController extends Controller
         
         
         $data['allData'] = AssignStudent::where('class_id',$data['class_id'])->where('year_id',$data['year_id'] )->get();
-        //$data['countLogo'] = Slider::count();
-        //dd($data['countLogo']);
+     
         return view('backend.student.student_reg.view', $data);
     }
     public function add()
@@ -127,13 +126,8 @@ class StudentRegController extends Controller
         $data['years'] = StudentYear::orderBy('id','desc')->get();
         $data['classes'] = StudentClass::orderBy('id','asc')->get();
         $data['year_id'] = $request->year_id;
-        $data['class_id'] = $request->class_id;
-        
-        
-        
-        $data['allData'] = AssignStudent::where('class_id',$data['class_id'])->where('year_id',$data['year_id'] )->get();
-        //$data['countLogo'] = Slider::count();
-        //dd($data['countLogo']);
+        $data['class_id'] = $request->class_id;  
+        $data['allData'] = AssignStudent::where('class_id',$data['class_id'])->where('year_id',$data['year_id'] )->get();        
         return view('backend.student.student_reg.view', $data);
     }
     public function edit($student_id)
@@ -272,6 +266,16 @@ class StudentRegController extends Controller
         
        // return $pdf->download('student.pdf');
       // dd('ok');
+        
+    }
+    public function download()
+    {
+        $data['years'] = StudentYear::orderBy('id','desc')->get();
+        $data['classes'] = StudentClass::orderBy('id','asc')->get();
+        $data['year_id'] = $request->year_id;
+        $data['class_id'] = $request->class_id;  
+        $data['allData'] = AssignStudent::where('class_id',$data['class_id'])->where('year_id',$data['year_id'] )->get();        
+        return view('backend.student.student_reg.view', $data);
         
     }
 }

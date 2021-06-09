@@ -77,7 +77,7 @@
                     </table>
                     
                
-                <hr>
+                
                
                
                     <div class="table-responsive-sm">
@@ -86,18 +86,22 @@
                             <tbody>
                                 <tr>
                                     <td style="text-align:center" class="center"><b>Name</b></td>
+                                    <td style="text-align:center" class="center"><b>:</b></td>
                                     <td style="text-align:center" class="left strong"><b>{{@$editData['student']['name']}}</b></td>     
                                 </tr>
                                 <tr>
                                     <td style="text-align:center" class="center">Fathers Name</td>
+                                    <td style="text-align:center" class="center"><b>:</b></td>
                                     <td style="text-align:center" class="left strong">{{@$editData['student']['fname']}}</td>     
                                 </tr>
                                 <tr>
                                     <td style="text-align:center" class="center">Mothers Name</td>
+                                    <td style="text-align:center" class="center"><b>:</b></td>
                                     <td style="text-align:center" class="left strong">{{@$editData['student']['mnames']}}</td>     
                                 </tr>
                                 <tr>
                                     <td style="text-align:center" class="center">Year</td>
+                                    <td style="text-align:center" class="center"><b>:</b></td>
                                     @foreach($years as $year)
                                     <?php if(@$editData->year_id == $year->id){ ?>
     
@@ -108,6 +112,7 @@
                                 </tr>
                                 <tr>
                                     <td style="text-align:center" class="center">Calss</td>
+                                    <td style="text-align:center" class="center"><b>:</b></td>
                                     @foreach($classes as $class)
                                     <?php if(@$editData->class_id == $class->id){ ?>
     
@@ -118,26 +123,32 @@
                                 </tr>
                                 <tr>
                                     <td style="text-align:center" class="center">ID_NO</td>
+                                    <td style="text-align:center" class="center"><b>:</b></td>
                                     <td style="text-align:center" class="left strong">{{@$editData['student']['id_no']}}</td>     
                                 </tr>
                                 <tr>
                                     <td style="text-align:center" class="center">Mobile</td>
+                                    <td style="text-align:center" class="center"><b>:</b></td>
                                     <td style="text-align:center" class="left strong">{{@$editData['student']['mobile']}}</td>     
                                 </tr>
                                 <tr>
                                     <td style="text-align:center" class="center">Address</td>
+                                    <td style="text-align:center" class="center"><b>:</b></td>
                                     <td style="text-align:center" class="left strong">{{@$editData['student']['address']}}</td>     
                                 </tr>
                                 <tr>
                                     <td style="text-align:center" class="center">Gender</td>
+                                    <td style="text-align:center" class="center"><b>:</b></td>
                                     <td style="text-align:center" class="left strong">{{@$editData['student']['gender']}}</td>     
                                 </tr>
                                 <tr>
                                     <td style="text-align:center" class="center">Religion</td>
+                                    <td style="text-align:center" class="center"><b>:</b></td>
                                     <td style="text-align:center" class="left strong">{{@$editData['student']['religion']}}</td>     
                                 </tr>
                                 <tr>
-                                    <td style="text-align:center" class="center">Dath of Birts</td>
+                                    <td style="text-align:center" class="center">Dath of Birth</td>
+                                    <td style="text-align:center" class="center"><b>:</b></td>
                                     <td style="text-align:center" class="left strong">{{@$editData['student']['dob']}}</td>     
                                 </tr>
                                 
