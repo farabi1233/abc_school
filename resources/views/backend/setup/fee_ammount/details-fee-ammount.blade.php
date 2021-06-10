@@ -78,7 +78,7 @@
                                             <td>{{$value['student_class']['name']}}</td>
 
 
-                                            <td>{{$value->ammount}}</td>
+                                            <td>{{$value->amount}}</td>
 
 
 

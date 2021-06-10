@@ -163,7 +163,7 @@ Route::prefix('students')->middleware(['test'])->group(function (){
 
     //Student exam Fee
     Route::get('/exam_fee/view', 'Backend\Student\StudentExamFeeController@view')->name('students.exam_fee.view');
-    Route::post('/exam_fee/store', 'Backend\Student\StudentExamFeeController@store')->name('students.exam_fee.store');
+    
     Route::get('/exam_fee/get-student', 'Backend\Student\StudentExamFeeController@getStudent')->name('students.exam_fee.get-student');
     Route::get('/exam_fee/pay-slip', 'Backend\Student\StudentExamFeeController@paySlip')->name('students.exam_fee.payslip');
    
