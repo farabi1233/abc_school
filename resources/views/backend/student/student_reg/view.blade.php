@@ -293,19 +293,14 @@
         $(document).ready(function() {
             $('#myForm').validate({
                 rules: {
-
                     "year_id": {
                         required: true,
-
                     },
                     "class_id": {
                         required: true,
-
                     }
                 },
                 messages: {
-
-
                 },
                 errorElement: 'span',
                 errorPlacement: function(error, element) {
@@ -320,7 +315,6 @@
                 }
             });
         });
-
     </script>
 
 @endsection

@@ -170,6 +170,17 @@ Route::prefix('students')->middleware(['test'])->group(function (){
 });
 
 
+Route::prefix('employees')->middleware(['test'])->group(function (){
+    
+   Route::get('/reg/view', 'Backend\Employee\EmployeeRegController@view')-> name('employees.registration.view');
+    Route::get('/reg/add', 'Backend\Employee\EmployeeRegController@add')-> name('employees.registration.add');
+    Route::get('/reg/edit/{employee_id}', 'Backend\Employee\EmployeeRegController@edit') -> name('employees.registration.edit');
+    Route::post('/reg/update/{employee_id}', 'Backend\Employee\EmployeeRegController@update')->name('employees.registration.update');
+    Route::get('/reg/details/{employee_id}', 'Backend\Employee\EmployeeRegController@details')->name('employees.registration.details');
+    Route::post('/reg/store', 'Backend\Employee\EmployeeRegController@store')->name('employees.registration.store');
+   
+});
+
 
 
 

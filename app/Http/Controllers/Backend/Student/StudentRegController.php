@@ -268,14 +268,5 @@ class StudentRegController extends Controller
       // dd('ok');
         
     }
-    public function download()
-    {
-        $data['years'] = StudentYear::orderBy('id','desc')->get();
-        $data['classes'] = StudentClass::orderBy('id','asc')->get();
-        $data['year_id'] = $request->year_id;
-        $data['class_id'] = $request->class_id;  
-        $data['allData'] = AssignStudent::where('class_id',$data['class_id'])->where('year_id',$data['year_id'] )->get();        
-        return view('backend.student.student_reg.view', $data);
-        
-    }
+   
 }
