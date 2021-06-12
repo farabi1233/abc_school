@@ -16,7 +16,7 @@ class UserController extends Controller
 
     public function viewUser()
     {
-        $data['allData'] = User::where('usertype','Admin')->get();
+        $data['allData'] = User::all();
 
         return view('backend.user.view-user', $data);
 

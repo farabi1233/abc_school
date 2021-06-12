@@ -202,7 +202,7 @@ $route = Route::current()->getName();
 
             <li class="nav-item has-treeview {{($prefix=='/students')?'menu-open':''}}">
                 <a href="#" class="nav-link ">
-                    <i class="fas fa-book-reader"></i>
+                    <i class="fas fa-chalkboard-teacher"></i>
                     <p>
                         Manage Employee
                         <i class="fas fa-angle-left right"></i>
@@ -214,6 +214,13 @@ $route = Route::current()->getName();
                         <a href="{{ route ('employees.registration.view') }}" class="nav-link {{($route=='employees.registration.view')?'active':''}}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Employee Registration</p>
+                        </a>
+                        
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route ('employees.salary.view') }}" class="nav-link {{($route=='employees.salary.view')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Employee Salary</p>
                         </a>
                         
                     </li>

@@ -179,6 +179,13 @@ Route::prefix('employees')->middleware(['test'])->group(function (){
     Route::get('/reg/details/{employee_id}', 'Backend\Employee\EmployeeRegController@details')->name('employees.registration.details');
     Route::post('/reg/store', 'Backend\Employee\EmployeeRegController@store')->name('employees.registration.store');
    
+    //  Employee salary  
+   
+    Route::get('/salary/view', 'Backend\Employee\EmployeeSalaryController@view')->name('employees.salary.view');
+    Route::get('/salary/increment/{id}', 'Backend\Employee\EmployeeSalaryController@increment')->name('employees.salary.increment');
+    Route::post('/salary/increment/store/{id}', 'Backend\Employee\EmployeeSalaryController@store')->name('employees.salary.increment.store');
+    Route::get('/salary/log/{id}', 'Backend\Employee\EmployeeSalaryController@details')->name('employees.salary.log');
+    
 });
 
 
