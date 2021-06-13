@@ -8,7 +8,7 @@ use App\Model\StudentClass;
 use App\Model\StudentMarks;
 use App\Model\StudentYear;
 use Illuminate\Http\Request;
-
+use App\User;
 class MarksController extends Controller
 {
     public function add()
@@ -45,7 +45,7 @@ class MarksController extends Controller
     }
     public function edit()
     {
-        $data['years'] = AcademicYear::orderBy('id','desc')->get();
+        $data['years'] = StudentYear::orderBy('id','desc')->get();
         $data['classes'] = StudentClass::all();
         $data['exam_types'] = ExamType::all();
         // echo "<pre>"; print_r($data); die;
@@ -53,6 +53,7 @@ class MarksController extends Controller
     }
     public function getMarks(Request $request)
     {
+        
         $year_id = $request->year_id;
         $class_id = $request->class_id;
         $assign_subject_id = $request->assign_subject_id;
@@ -62,6 +63,7 @@ class MarksController extends Controller
     }
     public function update(Request $request)
     {
+        
         StudentMarks::where(['year_id'=>$request->year_id,'class_id'=>$request->class_id,'assign_subject_id'=>$request->assign_subject_id,'exam_type_id'=>$request->exam_type_id])->delete();
         $student_count = $request->student_id;
         if($student_count){
@@ -77,10 +79,8 @@ class MarksController extends Controller
                 $data->save();
             }
         }else{
-            toastr()->error('Not available student to update marks','Failed');
-            return redirect()->back();
+            return redirect()->back()->with('error','No available student ');
         }
-        toastr()->success('Marks updated Successfully','Success');
-        return redirect()->back();
+        return redirect()->back()->with('success','Update Successfully');
     }
 }

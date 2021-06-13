@@ -272,9 +272,9 @@ $route = Route::current()->getName();
                         
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route ('employees.salary.view') }}" class="nav-link {{($route=='employees.salary.view')?'active':''}}">
+                        <a href="{{ route ('marks.edit') }}" class="nav-link {{($route=='marks.edit')?'active':''}}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Employee Salary</p>
+                            <p>Marks Edit</p>
                         </a>
                         
                     </li>
@@ -287,9 +287,9 @@ $route = Route::current()->getName();
                     </li>
                    
                     <li class="nav-item">
-                        <a href="{{ route ('employees.leave.view') }}" class="nav-link {{($route=='employees.leave.view')?'active':''}}">
+                        <a href="{{ route ('marks.grade.view') }}" class="nav-link {{($route=='marks.grade.view')?'active':''}}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Employee Attendence</p>
+                            <p>Gread Point</p>
                         </a>
                         
                     </li>

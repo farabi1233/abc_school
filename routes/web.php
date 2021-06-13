@@ -208,12 +208,22 @@ Route::prefix('employees')->middleware(['test'])->group(function () {
 
 
 Route::prefix('marks')->middleware(['test'])->namespace('Backend\Marks')->group(function () {
-
+    //Marks entry
     Route::get('/add', 'MarksController@add')->name('marks.add');
     Route::post('/store', 'MarksController@store')->name('marks.store');
     Route::get('/edit', 'MarksController@edit')->name('marks.edit');
     Route::post('/update', 'MarksController@update')->name('marks.update');
-    Route::get('/get-student-marks', 'MarksController@getMarks')->name('marks.get_student_marks');
+    Route::get('/get-student-marks', 'MarksController@getMarks')->name('get-student-marks');
+
+    //grade point
+
+    Route::get('/grade/view', 'GradeController@view')->name('marks.grade.view');
+    Route::get('/grade/add', 'GradeController@add')->name('marks.grade.add');
+    Route::post('/grade/store', 'GradeController@store')->name('marks.grade.store');
+    Route::get('/grade/edit/{id}', 'GradeController@edit')->name('marks.grade.edit');
+    Route::get('/grade/delete/{id}', 'GradeController@delete')->name('marks.grade.delete');
+    Route::post('/grade/update/{id}', 'GradeController@update')->name('marks.grade.update');
+    Route::post('/grade/details/{id}', 'GradeController@details')->name('marks.grade.details');
 });
 
 

@@ -56,6 +56,8 @@
                         <td>
                             <a title="Edit" class=" btn btn-success mr-1"
                             href="{{ route('marks.grade.edit',$data['id']) }}"> <i class="fas fa-pencil-alt"></i></a>
+                            <a title="Edit" class=" btn btn-danger mr-1"
+                            href="{{ route('marks.grade.delete',$data['id']) }}"> <i class="fas fa-trash"></i></a>
                         </td>
                       </tr>
                     @endforeach

@@ -61,27 +61,29 @@ class AssignSubjectController extends Controller
     }
     public function update(Request $request, $class_id)
     {
-        if ($request->subject_id == NULL) {
-            return redirect()->back()->with('error', 'Sorry!!! You do not select any Subject!');
-        } else {
-            AssignSubject::where('class_id', $class_id)->delete();
-            $subjectCount = count($request->subject_id);
-
-            for ($i = 0; $i < $subjectCount; $i++) {
-                $assign_sub = new AssignSubject();
-                $assign_sub->class_id = $request->class_id;
-                $assign_sub->subject_id = $request->subject_id[$i];
-                $assign_sub->full_mark = $request->full_mark[$i];
-                $assign_sub->pass_mark = $request->pass_mark[$i];
-                $assign_sub->subjective_mark = $request->subjective_mark[$i];
-                $assign_sub->save();
+        if($request['subject_id'] == null){
+            
+            return redirect()->back()->with('error','you do not select or update any field ');
+        }else{
+            AssignSubject::whereNotIn('subject_id',$request->subject_id)->where('class_id',$request->class_id)->delete();
+            foreach ($request->subject_id as $key => $value) {
+                $assign_subject_exist = AssignSubject::where('subject_id',$request->subject_id[$key])->where('class_id',$request->class_id)->first();
+                if($assign_subject_exist){
+                    $assignSubject = $assign_subject_exist;
+                }else{
+                    $assignSubject = new AssignSubject();
+                }
+                $assignSubject['class_id'] = $request['class_id'];
+                $assignSubject['subject_id'] = $request['subject_id'][$key];
+                $assignSubject['full_mark'] = $request['full_mark'][$key];
+                $assignSubject['pass_mark'] = $request['pass_mark'][$key];
+                $assignSubject['subjective_mark'] = $request['subjective_mark'][$key];
+                $assignSubject->save();
             }
+        }
             return redirect()->route('setups.assign.subject.view')->with('success', 'Assign Subject Update Successfully');
         }
 
-
-
-    }
 
 
     public function details($class_id)
