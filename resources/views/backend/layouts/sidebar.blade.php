@@ -232,6 +232,70 @@ $route = Route::current()->getName();
                         
                     </li>
                    
+                    <li class="nav-item">
+                        <a href="{{ route ('employees.leave.view') }}" class="nav-link {{($route=='employees.leave.view')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Employee Attendence</p>
+                        </a>
+                        
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route ('employees.monthly.salary.view') }}" class="nav-link {{($route=='employees.monthly.salary.view')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Monthly Salary</p>
+                        </a>
+                        
+                    </li>
+                   
+                   
+                    
+                  
+                   
+                </ul>
+            </li>
+
+            <li class="nav-item has-treeview {{($prefix=='/students')?'menu-open':''}}">
+                <a href="#" class="nav-link ">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <p>
+                       Marks Managment
+                        <i class="fas fa-angle-left right"></i>
+
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route ('marks.add') }}" class="nav-link {{($route=='marks.add')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Marks Entry</p>
+                        </a>
+                        
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route ('employees.salary.view') }}" class="nav-link {{($route=='employees.salary.view')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Employee Salary</p>
+                        </a>
+                        
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route ('employees.leave.view') }}" class="nav-link {{($route=='employees.leave.view')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Employee Leave</p>
+                        </a>
+                        
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a href="{{ route ('employees.leave.view') }}" class="nav-link {{($route=='employees.leave.view')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Employee Attendence</p>
+                        </a>
+                        
+                    </li>
+                   
+                   
+                   
                     
                   
                    
