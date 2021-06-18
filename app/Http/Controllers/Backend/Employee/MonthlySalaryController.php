@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Backend\Employee;
 
 use App\Http\Controllers\Controller;
+use App\Model\EmployeeAttendance;
 use Illuminate\Http\Request;
+use PDF;
 
 class MonthlySalaryController extends Controller
 {
     public function view()
     {
-        dd("done");
+        
         return view('backend.employee.monthly_salary.view_monthly_salary');
     }
     public function getSalary(Request $request)
@@ -52,6 +54,7 @@ class MonthlySalaryController extends Controller
         }
         $data['total_attend_groupby_id'] = EmployeeAttendance::with(['user'])->where($where)->where('employee_id',$id->employee_id)->get();
         $pdf = PDF::loadView('backend.employee.monthly_salary.details_monthly_salary_pdf', $data);
+        //return view ('backend.employee.monthly_salary.details_monthly_salary_pdf', $data);
         return $pdf->stream('Employee-Salary-Report.pdf');
 
     }

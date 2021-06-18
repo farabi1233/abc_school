@@ -208,9 +208,7 @@ Route::prefix('employees')->middleware(['test'])->group(function () {
 
     //monthly Salary
 
-    Route::get('employee/monthly/salary/view', 'MonthlySalaryController@view')->name('employees.monthly.salary.view');
-    Route::get('employee/monthly/salary/get', 'MonthlySalaryController@getSalary')->name('employees.monthly.salary.get');
-    Route::get('employee/monthly/salary/payslip/{employee_id}', 'MonthlySalaryController@paySlip')->name('employees.monthly.salary.payslip');
+   
 });
 
 
