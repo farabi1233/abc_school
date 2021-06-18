@@ -10,7 +10,7 @@ $route = Route::current()->getName();
             <img src="{{(!empty($photo))? url('upload/user_images/'.$photo):url('upload/no_image.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="{{ route ('profiles.view') }}" class="d-block">{{Auth::user()->name}}</a>
+            <a href="{{ route ('profiles.view') }}" class="d-block"><b>{{Auth::user()->name}}</b></a>
         </div>
     </div>  
 
@@ -20,6 +20,8 @@ $route = Route::current()->getName();
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 @if(Auth::user()->role=='Admin')
+<br>
+<h5 style="background-color:#FFC300; "><b><i class="fas fa-user-circle"></i> User Managment:</b></h5>  
 
             <li class="nav-item has-treeview {{($prefix=='/users')?'menu-open':''}}">
                 <a href="#" class="nav-link">
@@ -70,7 +72,8 @@ $route = Route::current()->getName();
             </li>
 
 <!-- Manage setup -->
-            <li class="nav-item has-treeview {{($prefix=='/setups')?'menu-open':''}}">
+<br>
+<h5 style="background-color:#FFC300;"><b><i class="fas fa-school"></i> School Managment:</b></h5>            <li class="nav-item has-treeview {{($prefix=='/setups')?'menu-open':''}}">
                 <a href="#" class="nav-link ">
                     <i class="fas fa-tasks"></i>
                     <p>
@@ -152,7 +155,7 @@ $route = Route::current()->getName();
 
             <li class="nav-item has-treeview {{($prefix=='/students')?'menu-open':''}}">
                 <a href="#" class="nav-link ">
-                    <i class="fas fa-book-reader"></i>
+                    <i class="fas fa-graduation-cap"></i>
                     <p>
                         Manage Student
                         <i class="fas fa-angle-left right"></i>
@@ -233,7 +236,7 @@ $route = Route::current()->getName();
                     </li>
                    
                     <li class="nav-item">
-                        <a href="{{ route ('employees.leave.view') }}" class="nav-link {{($route=='employees.leave.view')?'active':''}}">
+                        <a href="{{ route ('employees.attendance.view') }}" class="nav-link {{($route=='employees.attendance.view')?'active':''}}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Employee Attendence</p>
                         </a>
@@ -256,7 +259,7 @@ $route = Route::current()->getName();
 
             <li class="nav-item has-treeview {{($prefix=='/students')?'menu-open':''}}">
                 <a href="#" class="nav-link ">
-                    <i class="fas fa-chalkboard-teacher"></i>
+                    <i class="fas fa-poll-h"></i>
                     <p>
                        Marks Managment
                         <i class="fas fa-angle-left right"></i>
@@ -278,13 +281,7 @@ $route = Route::current()->getName();
                         </a>
                         
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ route ('employees.leave.view') }}" class="nav-link {{($route=='employees.leave.view')?'active':''}}">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Employee Leave</p>
-                        </a>
-                        
-                    </li>
+                    
                    
                     <li class="nav-item">
                         <a href="{{ route ('marks.grade.view') }}" class="nav-link {{($route=='marks.grade.view')?'active':''}}">

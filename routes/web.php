@@ -191,6 +191,15 @@ Route::prefix('employees')->middleware(['test'])->group(function () {
     Route::post('employee/leave/update/{id}', 'Backend\Employee\EmployeeLeaveController@update')->name('employees.leave.update');
     Route::get('employee/leave/details/{id}', 'Backend\Employee\EmployeeLeaveController@details')->name('employees.leave.details');
 
+
+
+    //employee attendence 
+    
+            Route::get('/attendance/view', 'Backend\Employee\EmployeeAttendController@view')->name('employees.attendance.view');
+            Route::get('/attendance/add', 'Backend\Employee\EmployeeAttendController@add')->name('employees.attendance.add');
+            Route::post('/attendance/store', 'Backend\Employee\EmployeeAttendController@store')->name('employees.attendance.store');
+            Route::get('/attendance/edit/{date}', 'Backend\Employee\EmployeeAttendController@edit')->name('employees.attendance.edit');
+            Route::get('/attendance/details/{date}', 'Backend\Employee\EmployeeAttendController@details')->name('employees.attendance.details');
     //employee monthly salary
 
     Route::get('employee/monthly/salary/view', 'Backend\Employee\MonthlySalaryController@view')->name('employees.monthly.salary.view');
