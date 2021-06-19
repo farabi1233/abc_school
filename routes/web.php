@@ -194,12 +194,12 @@ Route::prefix('employees')->middleware(['test'])->group(function () {
 
 
     //employee attendence 
-    
-            Route::get('/attendance/view', 'Backend\Employee\EmployeeAttendController@view')->name('employees.attendance.view');
-            Route::get('/attendance/add', 'Backend\Employee\EmployeeAttendController@add')->name('employees.attendance.add');
-            Route::post('/attendance/store', 'Backend\Employee\EmployeeAttendController@store')->name('employees.attendance.store');
-            Route::get('/attendance/edit/{date}', 'Backend\Employee\EmployeeAttendController@edit')->name('employees.attendance.edit');
-            Route::get('/attendance/details/{date}', 'Backend\Employee\EmployeeAttendController@details')->name('employees.attendance.details');
+
+    Route::get('/attendance/view', 'Backend\Employee\EmployeeAttendController@view')->name('employees.attendance.view');
+    Route::get('/attendance/add', 'Backend\Employee\EmployeeAttendController@add')->name('employees.attendance.add');
+    Route::post('/attendance/store', 'Backend\Employee\EmployeeAttendController@store')->name('employees.attendance.store');
+    Route::get('/attendance/edit/{date}', 'Backend\Employee\EmployeeAttendController@edit')->name('employees.attendance.edit');
+    Route::get('/attendance/details/{date}', 'Backend\Employee\EmployeeAttendController@details')->name('employees.attendance.details');
     //employee monthly salary
 
     Route::get('employee/monthly/salary/view', 'Backend\Employee\MonthlySalaryController@view')->name('employees.monthly.salary.view');
@@ -208,7 +208,7 @@ Route::prefix('employees')->middleware(['test'])->group(function () {
 
     //monthly Salary
 
-   
+
 });
 
 
@@ -231,6 +231,31 @@ Route::prefix('marks')->middleware(['test'])->namespace('Backend\Marks')->group(
     Route::get('/grade/delete/{id}', 'GradeController@delete')->name('marks.grade.delete');
     Route::post('/grade/update/{id}', 'GradeController@update')->name('marks.grade.update');
     Route::post('/grade/details/{id}', 'GradeController@details')->name('marks.grade.details');
+});
+Route::prefix('accounts')->middleware(['test'])->namespace('Backend\Accounts')->group(function () {
+    /*-------------------------------------------------------------------------------------------------------------------------------
+            | Student Fee
+            |-------------------------------------------------------------------------------------------------------------------------------*/
+    Route::get('/student/fee/view', 'StudentFeeController@view')->name('accounts.fee.view');
+    Route::get('/student/fee/add', 'StudentFeeController@add')->name('accounts.fee.add');
+    Route::post('/student/fee/store', 'StudentFeeController@store')->name('accounts.fee.store');
+    Route::get('/student/fee/getstudent', 'StudentFeeController@getStudent')->name('accounts.fee.get-student');
+    /*-------------------------------------------------------------------------------------------------------------------------------
+            | Employee Salary
+            |-------------------------------------------------------------------------------------------------------------------------------*/
+    Route::get('/employee/salary/view', 'SalaryController@view')->name('accounts.salary.view');
+    Route::get('/employee/salary/add', 'SalaryController@add')->name('accounts.salary.add');
+    Route::post('/employee/salary/store', 'SalaryController@store')->name('accounts.salary.store');
+    Route::get('/employee/salary/get-employee', 'SalaryController@getEmployee')->name('accounts.salary.get-employee');
+    /*-------------------------------------------------------------------------------------------------------------------------------
+            | Others Cost
+            |-------------------------------------------------------------------------------------------------------------------------------*/
+    Route::get('/cost/view', 'OtherCostController@view')->name('accounts.cost.view');
+    Route::get('/cost/add', 'OtherCostController@add')->name('accounts.cost.add');
+    Route::post('/cost/store', 'OtherCostController@store')->name('accounts.cost.store');
+    Route::get('/cost/edit/{id}', 'OtherCostController@edit')->name('accounts.cost.edit');
+    Route::post('/cost/update/{id}', 'OtherCostController@update')->name('accounts.cost.update');
+    Route::post('/delete', 'OtherCostController@delete')->name('accounts.cost.delete');
 });
 
 

@@ -129,8 +129,8 @@
             <div class="info-box shadow-lg">
               <span class="info-box-icon bg-danger"><i class="fas fa-user-check"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">Student Registration</span>
-                <a href="{{ route('students.registration.add') }}" class="small-box-footer" target="_blank">Click here <i class="fas fa-arrow-circle-right"></i></a>
+                <span class="info-box-text">Add User/Admin</span>
+                <a href="{{ route('users.add') }}" class="small-box-footer" target="_blank">Click here <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
           </div>

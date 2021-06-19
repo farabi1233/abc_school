@@ -3,17 +3,22 @@ $prefix = Request::route()->getPrefix();
 $photo = Auth::user()->image;
 $route = Route::current()->getName();
 @endphp
+
+<hr>
 <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-            <img src="{{(!empty($photo))? url('upload/user_images/'.$photo):url('upload/no_image.jpg') }}" class="img-circle elevation-2" alt="User Image">
+            <img src="{{(!empty($photo))? url('upload/user_images/'.$photo):url('upload/no_image.jpg') }}" class="img-circle elevation-4" alt="User Image">
         </div>
         <div class="info">
             <a href="{{ route ('profiles.view') }}" class="d-block"><b>{{Auth::user()->name}}</b></a>
         </div>
     </div>  
+    <a href="{{ route('home')}}" class="brand-link">
 
+        <h3 class="brand-text font-weight-light" style=" text-align: justify; "><b>Dashboard</b></h3>
+    </a>
     <!-- Sidebar Menu -->
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -287,6 +292,48 @@ $route = Route::current()->getName();
                         <a href="{{ route ('marks.grade.view') }}" class="nav-link {{($route=='marks.grade.view')?'active':''}}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Gread Point</p>
+                        </a>
+                        
+                    </li>
+                   
+                   
+                   
+                    
+                  
+                   
+                </ul>
+            </li>
+
+            <li class="nav-item has-treeview {{($prefix=='/students')?'menu-open':''}}">
+                <a href="#" class="nav-link ">
+                    <i class="fas fa-poll-h"></i>
+                    <p>
+                       Accounts Managment
+                        <i class="fas fa-angle-left right"></i>
+
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route ('accounts.fee.view') }}" class="nav-link {{($route=='accounts.fee.view')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Student Fee</p>
+                        </a>
+                        
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route ('marks.edit') }}" class="nav-link {{($route=='marks.edit')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Employee Salary</p>
+                        </a>
+                        
+                    </li>
+                    
+                   
+                    <li class="nav-item">
+                        <a href="{{ route ('marks.grade.view') }}" class="nav-link {{($route=='marks.grade.view')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Other Cost</p>
                         </a>
                         
                     </li>
