@@ -111,32 +111,24 @@
       var fee_category_id = $("#fee_category_id").val();
       var date = $('#date').val();
       if(year_id == ""){
-        $.notify("Year Required", {
-                    globalPosition: 'top right',
-                    className: 'error'
-                });
-                return false;
-      }
+        toastr.error('Please select Year','Error');
+        return false;
+
+
+
+}
       if(class_id == ""){
-        $.notify("Class Required", {
-                    globalPosition: 'top right',
-                    className: 'error'
-                });
-                return false;
+        toastr.error('Please select Class','Error');
+        return false;
+    
       }
       if(fee_category_id == ""){
-        $.notify("Fee Category Required", {
-                    globalPosition: 'top right',
-                    className: 'error'
-                });
-                return false;
+        toastr.error('Please select Fee Category','Error');
+        return false;
       }
       if(date == ""){
-        $.notify("Date Required", {
-                    globalPosition: 'top right',
-                    className: 'error'
-                });
-                return false;
+        toastr.error('Please Select Date','Error');
+        return false;
       }
       $.ajax({
         url: "getstudent",

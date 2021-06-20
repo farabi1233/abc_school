@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Latavel Project Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    @toastr_css
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Ionicons -->
@@ -100,7 +101,10 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-           
+            <a href="{{ route('home')}}" class="brand-link">
+
+                <span class="brand-text font-weight-light">Dashboard</span>
+            </a>
 
             <!-- Sidebar -->
             @include('backend/layouts/sidebar')
@@ -203,6 +207,10 @@
     <script src="{{ asset('backend/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('backend/plugins/jquery-validation/additional-methods.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    @toastr_js
+    @toastr_render
+ 
+ 
     <script>
         $(function() {
             $("#example1").DataTable({

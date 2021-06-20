@@ -11,6 +11,7 @@ use App\Model\StudentClass;
 use App\Model\StudentYear;
 use Illuminate\Http\Request;
 
+
 class StudentFeeController extends Controller
 {
     public function view()
@@ -58,7 +59,7 @@ class StudentFeeController extends Controller
             $color = 'success';
             $html[$key]['tdsource'] = '<td>'.$std['student']['id_no'].'<input type="hidden" name="fee_category_id" value="'.$fee_category_id.'">'.'</td>';
             $html[$key]['tdsource'] .= '<td>'.$std['student']['name'].'<input type="hidden" name="year_id" value="'.$year_id.'">'.'</td>';
-            $html[$key]['tdsource'] .= '<td>'.$std['student']['father_name'].'<input type="hidden" name="class_id" value="'.$class_id.'">'.'</td>';
+            $html[$key]['tdsource'] .= '<td>'.$std['student']['fname'].'<input type="hidden" name="class_id" value="'.$class_id.'">'.'</td>';
             $html[$key]['tdsource'] .= '<td>'.$student_fee['amount'].'Tk'.'<input type="hidden" name="date" value="'.$date.'">'.'</td>';
             $html[$key]['tdsource'] .= '<td>'.$std['discount']['discount'].'%'.'</td>';
             $originalfee = $student_fee['amount'];

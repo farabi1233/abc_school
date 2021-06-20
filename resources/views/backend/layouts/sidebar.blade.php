@@ -208,7 +208,7 @@ $route = Route::current()->getName();
             </li>
 
 
-            <li class="nav-item has-treeview {{($prefix=='/students')?'menu-open':''}}">
+            <li class="nav-item has-treeview {{($prefix=='/employees')?'menu-open':''}}">
                 <a href="#" class="nav-link ">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <p>
@@ -262,7 +262,7 @@ $route = Route::current()->getName();
                 </ul>
             </li>
 
-            <li class="nav-item has-treeview {{($prefix=='/students')?'menu-open':''}}">
+            <li class="nav-item has-treeview {{($prefix=='/marks')?'menu-open':''}}">
                 <a href="#" class="nav-link ">
                     <i class="fas fa-poll-h"></i>
                     <p>
@@ -304,7 +304,7 @@ $route = Route::current()->getName();
                 </ul>
             </li>
 
-            <li class="nav-item has-treeview {{($prefix=='/students')?'menu-open':''}}">
+            <li class="nav-item has-treeview {{($prefix=='/accounts')?'menu-open':''}}">
                 <a href="#" class="nav-link ">
                     <i class="fas fa-poll-h"></i>
                     <p>

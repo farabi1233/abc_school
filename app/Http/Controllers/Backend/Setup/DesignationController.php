@@ -32,7 +32,8 @@ class DesignationController extends Controller
         $data = new Designation();
         $data->name = $request->name;
         $data->save();
-        return redirect()->route('setups.designation.view')->with('success', 'Year Added Successfully');
+        toastr()->success('Designation Added  ', 'Added Successfully');
+        return redirect()->route('setups.designation.view');
     }
 
 
@@ -51,7 +52,8 @@ class DesignationController extends Controller
         
 
         $data->save();
-        return redirect()->route('setups.designation.view')->with('success', 'Edit Designaion Successfully');
+        toastr()->success('Designation Updated', 'Update Successfully');
+        return redirect()->route('setups.designation.view');
     }
 
     public function delete($id)
@@ -60,6 +62,7 @@ class DesignationController extends Controller
 
 
         $designation->delete();
-        return redirect()->route('setups.designation.view')->with('success', 'Designation Deleted Successfully');
+        toastr()->error('Designaitn Delete', 'Delete Successfully');
+        return redirect()->route('setups.designation.view');
     }
 }

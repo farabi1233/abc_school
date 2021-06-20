@@ -33,7 +33,8 @@ class StudentClassController extends Controller
         $data = new StudentClass();
         $data->name = $request->name;
         $data->save();
-        return redirect()->route('setups.student.class.view')->with('success', 'Class Added Successfully');
+        toastr()->success('Class Added  ', 'Added Successfully');
+        return redirect()->route('setups.student.class.view');
     }
 
 
@@ -51,7 +52,8 @@ class StudentClassController extends Controller
         
 
         $data->save();
-        return redirect()->route('setups.student.class.view')->with('success', 'Edit Student Class Successfully');
+        toastr()->success('Class Updated', 'Update Successfully');
+        return redirect()->route('setups.student.class.view');
     }
 
     public function delete($id)
@@ -60,6 +62,7 @@ class StudentClassController extends Controller
 
 
         $class->delete();
-        return redirect()->route('setups.student.class.view')->with('success', 'Class Deleted Successfully');
+        toastr()->error('Class Delete', 'Delete Successfully');
+        return redirect()->route('setups.student.class.view');
     }
 }

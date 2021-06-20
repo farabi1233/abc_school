@@ -44,7 +44,8 @@ class AssignSubjectController extends Controller
                 $assign_sub->subjective_mark = $request->subjective_mark[$i];
                 $assign_sub->save();
             }
-            return redirect()->route('setups.assign.subject.view')->with('success', 'Assign Subject addedd Successfully');
+            toastr()->success('Assign Subject Added  ', 'Added Successfully');
+            return redirect()->route('setups.assign.subject.view');
         }
     }
 
@@ -81,7 +82,9 @@ class AssignSubjectController extends Controller
                 $assignSubject->save();
             }
         }
-            return redirect()->route('setups.assign.subject.view')->with('success', 'Assign Subject Update Successfully');
+        toastr()->success('Asign Subject Updated', 'Update Successfully');
+
+            return redirect()->route('setups.assign.subject.view');
         }
 
 
